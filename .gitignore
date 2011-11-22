@@ -1,0 +1,15 @@
+# Stuff Apple might not like #
+##############################
+
+*.rom
+*.DSK
+*.dsk
+*.hfv
+*.HFV
+*.image
+*.IMAGE
+*.img
+*.ROM
+vmac.rom
+vMac.ROM
+
