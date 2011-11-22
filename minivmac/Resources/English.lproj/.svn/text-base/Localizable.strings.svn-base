@@ -1,0 +1,47 @@
+/* error warnings */
+"WarnTitle" = "Warning";
+"WarnUnsupportedROM" = "Unsupported ROM";
+"WarnAbnormalSituation" = "Abnormal Situation";
+"WarnAbnormalSituationDetailed" = "Abnormal Situation: %s";
+"WarnCorruptedROM" = "Corrupted ROM";
+"WarnNoROM" = "Could not load ROM file (%s)";
+"WarnNoRAM" = "Could not allocate RAM";
+"WarnNoScreen" = "Could not allocate screen buffer";
+"WarnNoDrives" = "Could not initalize drives";
+"WarnNoSound" = "Could not initialize sound";
+"WarnNoEmu" = "Could not initalize emulation";
+
+/* insert disk view */
+"InsertDisk" = "Insert Disk";
+"TooManyDisksTitle" = "Too many Disk Images";
+"TooManyDisksText" = "I can not mount that many Disk Images. Try ejecting one.";
+
+/* settings view */
+"Settings" = "Settings";
+"SettingsKeyboard" = "Keyboard";
+"SettingsKeyboardOpacity" = "Opacity";
+"SettingsKeyboardSound" = "Key Sound";
+"SettingsSound" = "Sound";
+"SettingsSoundEnable" = "Mac Sound";
+"SettingsSoundDiskEject" = "Disk Eject";
+"SettingsMouse" = "Mouse";
+"SettingsMouseTrackpadMode" = "Trackpad";
+"SettingsDisk" = "Disk Images";
+"SettingsDiskDelete" = "Deletable";
+"SettingsDiskIcons" = "Create Icons";
+
+/* global */
+"OK" = "OK";
+"Cancel" = "Cancel";
+"Close" = "Close";
+
+/* new disk image */
+"NewDiskImageTitle" = "New Disk Image";
+"CreateDiskImage" = "Create";
+"Name:" = "Name:";
+"Size:" = "Size:";
+"NotEnoughSpaceMsg" = "There is enough space available to create a new disk image.";
+"ImageAlreadyExistsMsg" = "A disk image with that name already exists.";
+"ImageCreationError" = "An error occurred while creating the disk image.";
+"CreatingDiskImage" = "Creating Disk Image";
+"CreatingDiskImageWait" = "Please Wait…";

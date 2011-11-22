@@ -1,0 +1,47 @@
+/* error warnings */
+"WarnTitle" = "אזהרה";
+"WarnUnsupportedROM" = "ROM אינו נתמך";
+"WarnAbnormalSituation" = "מצב לא שגרתי";
+"WarnAbnormalSituationDetailed" = "מצב לא שגרתי: %s";
+"WarnCorruptedROM" = "ROM פגום";
+"WarnNoROM" = "לא ניתן לטעון את קובץ ה-ROM (%s)";
+"WarnNoRAM" = "לא ניתן להקצות זכרון RAM";
+"WarnNoScreen" = "לא ניתן להקצות זכרון מסך";
+"WarnNoDrives" = "לא ניתן לאתחל את הכוננים";
+"WarnNoSound" = "לא ניתן לאתחל את הקול";
+"WarnNoEmu" = "לא ניתן לאתחל את האימולציה";
+
+/* insert disk view */
+"InsertDisk" = "הכנס דיסק";
+"TooManyDisksTitle" = "יותר מידי דיסקים";
+"TooManyDisksText" = "אינני יכול לטעון כל-כך הרבה דיסקים. נסה להוציא אחד.";
+
+/* settings view */
+"Settings" = "הגדרות";
+"SettingsKeyboard" = "מקלדת";
+"SettingsKeyboardOpacity" = "אטימות";
+"SettingsKeyboardSound" = "צלילי מקשים";
+"SettingsSound" = "קול";
+"SettingsSoundEnable" = "צלילי מק";
+"SettingsSoundDiskEject" = "הוצאת דיסק";
+"SettingsMouse" = "עכבר";
+"SettingsMouseTrackpadMode" = "משטח מעקב";
+"SettingsDisk" = "דיסקים";
+"SettingsDiskDelete" = "ניתנים למחיקה";
+"SettingsDiskIcons" = "צור סמלים";
+
+/* global */
+"OK" = "אישור";
+"Cancel" = "ביטול";
+"Close" = "סגור";
+
+/* new disk image */
+"NewDiskImageTitle" = "דיסק חדש";
+"CreateDiskImage" = "צור";
+"Name:" = "שם:";
+"Size:" = "גודל:";
+"NotEnoughSpaceMsg" = "אין די מקום פנוי ליצירת דיסק חדש.";
+"ImageAlreadyExistsMsg" = "קיים דיסק עם שם זהה.";
+"ImageCreationError" = "ארעה שגיאה בעת יצירת הדיסק.";
+"CreatingDiskImage" = "יוצר דיסק";
+"CreatingDiskImageWait" = "אנא המתן…";
