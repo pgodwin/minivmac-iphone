@@ -1014,7 +1014,7 @@ LOCALPROC MyMousePositionSetDelta(ui4r dh, ui4r dv)
 LOCALVAR ui4b MyMousePosCurV = 0;
 LOCALVAR ui4b MyMousePosCurH = 0;
 
-LOCALPROC MyMousePositionSet(ui4r h, ui4r v)
+GLOBALPROC MyMousePositionSet(ui4r h, ui4r v)
 {
 	if ((h != MyMousePosCurH) || (v != MyMousePosCurV)) {
 		MyEvtQEl *p = MyEvtQElPreviousIn();

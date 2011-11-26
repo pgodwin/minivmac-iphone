@@ -21,3 +21,4 @@
 #endif
 
 EXPORTPROC Mouse_Update(void);
+EXPORTPROC Mouse_EndTickNotify(void);

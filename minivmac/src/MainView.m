@@ -18,6 +18,7 @@
         [self addSubview:screenView];
         [screenView setUserInteractionEnabled:NO];
         _gScreenView = screenView;
+        _updateColorMode = NSSelectorFromString (@"useColorMode:");
         SurfaceScrnBuf = [screenView pixels];
         screenSizeToFit = [defaults boolForKey:@"ScreenSizeToFit"];
         screenPosition = [defaults integerForKey:@"ScreenPosition"];

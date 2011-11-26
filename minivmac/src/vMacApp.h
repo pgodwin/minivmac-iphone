@@ -47,8 +47,9 @@ typedef enum Direction {
 @protocol VirtualDiskDrive
 - (BOOL)diskIsInserted:(NSString*)path;
 - (BOOL)insertDisk:(NSString*)path;
-- (short)readFromDrive:(short)drive start:(unsigned long)start count:(unsigned long*)count buffer:(void*)buffer;
-- (short)writeToDrive:(short)drive start:(unsigned long)start count:(unsigned long*)count buffer:(void*)buffer;
+//- (short)readFromDrive:(short)drive start:(unsigned long)start count:(unsigned long*)count buffer:(void*)buffer;
+//- (short)writeToDrive:(short)drive start:(unsigned long)start count:(unsigned long*)count buffer:(void*)buffer;
+- (short)sonyTransfer:(short)n isWrite:(BOOL)isWrite start:(unsigned long)start count:(unsigned long)count actCount: (unsigned long*)actCount buffer: (void*) buffer;
 - (short)sizeOfDrive:(short)drive count:(unsigned long*)count;
 - (BOOL)ejectDrive:(short)drive;
 - (BOOL)createDiskImage:(NSString*)name size:(int)size;
@@ -153,6 +154,7 @@ extern blnr SpeedStopped;
 extern short* SurfaceScrnBuf;
 extern short* pixelConversionTable;
 extern id _gScreenView;
+extern SEL _updateColorMode;
 extern ui5b MacDateDiff;
 extern ui5b CurEmulatedTime;
 

@@ -177,7 +177,7 @@ GLOBALVAR ui4b MouseMotionH = 0;
 //}
 
 FORWARDPROC HaveChangedScreenBuff(si4b top, si4b left, si4b bottom, si4b right);
-EXPORTPROC Screen_OutputFrame(ui3p screencurrentbuff);
+//EXPORTPROC Screen_OutputFrame(ui3p screencurrentbuff);
 
 
 //#include "INTLCHAR.h"

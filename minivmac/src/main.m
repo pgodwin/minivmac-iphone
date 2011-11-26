@@ -1,4 +1,4 @@
-/*
+ /*
  Mini vMac for iPhone
  Copyright (c) 2008-2009, Jesús A. Álvarez
 

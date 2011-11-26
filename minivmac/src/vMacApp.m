@@ -14,7 +14,8 @@ GLOBALPROC notifyDiskEjected(ui4b Drive_No);
 GLOBALPROC notifyDiskInserted(ui4b Drive_No, blnr locked);
 GLOBALFUNC blnr getFirstFreeDisk(ui4b *Drive_No);
 IMPORTFUNC blnr InitEmulation(void);
-
+IMPORTPROC MyMousePositionSet(ui4r h, ui4r v);
+IMPORTPROC MyMouseButtonSet(blnr down);
 #define RomFileName "MacIIx.ROM"
 
 @implementation vMacApp
@@ -170,6 +171,7 @@ IMPORTFUNC blnr InitEmulation(void);
     HaveMouseMotion = falseblnr;
     CurMouseH = CLAMP(mouseLoc.h, 0, vMacScreenWidth);
     CurMouseV = CLAMP(mouseLoc.v, 0, vMacScreenHeight);
+    MyMousePositionSet(CurMouseH, CurMouseV);
 }
 
 - (void)setMouseLoc:(Point)mouseLoc button:(BOOL)pressed {
@@ -177,6 +179,7 @@ IMPORTFUNC blnr InitEmulation(void);
     CurMouseH = CLAMP(mouseLoc.h, 0, vMacScreenWidth);
     CurMouseV = CLAMP(mouseLoc.v, 0, vMacScreenHeight);
     //CurMouseButton = pressed;
+    MyMousePositionSet(CurMouseH, CurMouseV);
     MyMouseButtonSet(pressed);
 }
 
@@ -294,7 +297,7 @@ IMPORTFUNC blnr InitEmulation(void);
     short i, driveNum;
     NSFileManager*  mgr = [NSFileManager defaultManager];
     // check for free drive
-    if (!getFirstFreeDisk(&driveNum)) {
+    if (!getFirstFreeDisk((unsigned short*)&driveNum)) {
         [self warnMessage:NSLocalizedString(@"TooManyDisksText", nil) title:NSLocalizedString(@"TooManyDisksTitle", nil)];
         return NO;
     }
@@ -319,53 +322,74 @@ IMPORTFUNC blnr InitEmulation(void);
     return YES; 
 }
 
-- (short)readFromDrive:(short)n start:(unsigned long)start count:(unsigned long*)count buffer:(void*)buffer {
-    int fd = [drives[n] fileDescriptor];
-    if (fd == 0) {
-        *count = 0;
-        return 1;
-    }
-    lseek(fd, (off_t)start, SEEK_SET);
-    read([drives[n] fileDescriptor], buffer, (size_t)*count);
-    return 0;
-}
+//- (short)readFromDrive:(short)n start:(unsigned long)start count:(unsigned long*)count buffer:(void*)buffer {
+//    int fd = [drives[n] fileDescriptor];
+//    if (fd == 0) {
+//        *count = 0;
+//        return 1;
+//    }
+//    lseek(fd, (off_t)start, SEEK_SET);
+//    read([drives[n] fileDescriptor], buffer, (size_t)*count);
+//    return 0;
+//}
+//
+//- (short)writeToDrive:(short)n start:(unsigned long)start count:(unsigned long*)count buffer:(void*)buffer {
+//    int fd = [drives[n] fileDescriptor];
+//    if (fd == 0) {
+//        *count = 0;
+//        return 1;
+//    }
+//    lseek(fd, (off_t)start, SEEK_SET);
+//    write(fd, buffer, (size_t)*count);
+//    return 0;
+//}
 
-- (short)writeToDrive:(short)n start:(unsigned long)start count:(unsigned long*)count buffer:(void*)buffer {
-    int fd = [drives[n] fileDescriptor];
-    if (fd == 0) {
-        *count = 0;
-        return 1;
-    }
-    lseek(fd, (off_t)start, SEEK_SET);
-    write(fd, buffer, (size_t)*count);
-    return 0;
-}
+- (short)sonyTransfer:(short)n isWrite:(BOOL)isWrite start:(unsigned long)start count:(unsigned long)count actCount: (unsigned long*)actCount buffer: (void*) buffer {
+//  ByteCount actualCount;
+//	short result;
+//    
+//	if (isWrite) {
+//        int fd = [drives[n] fileDescriptor];
+//        if (fd == 0) {
+//            count = 0;
+//            return 1;
+//        }
+//        lseek(fd, (off_t)start, SEEK_SET);
+//        write(fd, buffer, (size_t)count);
+//        result= 0;
+//	} else {
+//        int fd = [drives[n] fileDescriptor];
+//        if (fd == 0) {
+//            count = 0;
+//            return 1;
+//        }
+//        lseek(fd, (off_t)start, SEEK_SET);
+//        read([drives[n] fileDescriptor], buffer, (size_t)count);
+//        result = 0;
+//	}
+    
+    short result;
 
-- (short)sonyTransfer:(short)n isWrite:(BOOL)isWrite start:(unsigned long)start count:(unsigned long)count actCount: (unsigned long)actCount buffer: (void*) buffer {
-    //ByteCount actualCount;
-	short result;
+    ui5r NewSony_Count = count;
+    
+    int fd = [drives[n] fileDescriptor];
+    
+	lseek(fd, (off_t)start, SEEK_SET);
     
 	if (isWrite) {
-        int fd = [drives[n] fileDescriptor];
-        if (fd == 0) {
-            count = 0;
-            return 1;
-        }
-        lseek(fd, (off_t)start, SEEK_SET);
-        write(fd, buffer, (size_t)count);
-        result= 0;
+		write(fd, buffer, (size_t)count);
 	} else {
-        int fd = [drives[n] fileDescriptor];
-        if (fd == 0) {
-            count = 0;
-            return 1;
-        }
-        lseek(fd, (off_t)start, SEEK_SET);
-        read([drives[n] fileDescriptor], buffer, (size_t)count);
-        result = 0;
+		read([drives[n] fileDescriptor], buffer, (size_t)count);
 	}
     
+	if (nullpr != actCount) {
+		*actCount = NewSony_Count;
+	}
     
+	return mnvm_noErr;
+    
+    
+    result = 0;
 	return result;
 
 }

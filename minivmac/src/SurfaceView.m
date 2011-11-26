@@ -8,7 +8,6 @@
 
 
 #import <OpenGLES/EAGLDrawable.h>
-#import "cocos2d.h"
 #import "CNFGGLOB.h"
 
 
@@ -18,6 +17,14 @@ PixelFormat kPixelFormatARGB = "ARGB";
 BOOL useColor;
 
 NSLock* _lock = nil;
+
+CGColorSpaceRef colorSpace;
+CGDataProviderRef provider;
+CGImageRef cgImage;
+CGContextRef bitmap;
+CGColorSpaceRef rgbColorSpace; 
+
+static unsigned char colorTable[] = {0, 0, 0, 255, 255, 255, 0};
 
 // kCAFilterNearest, kCAFilterLinear
 #define kDefaultScalingFilter kCAFilterLinear 
@@ -65,44 +72,40 @@ NSLock* _lock = nil;
     pixelFormat = pxf;
     surfaceSize = size;
         
-    if (self = [super initWithFrame:frame]) {
+    rgbColorSpace = CGColorSpaceCreateDeviceRGB(); 
     
-        NSDictionary *d = [NSDictionary dictionaryWithObjectsAndKeys:
-                           // [NSNumber numberWithBool:YES], kCVPixelBufferCGBitmapContextCompatibilityKey,
-                           //  [NSNumber numberWithBool:YES], kCVPixelBufferCGImageCompatibilityKey,
-                           //  [NSNumber numberWithBool:YES], kCVPixelBufferOpenGLCompatibilityKey,
-                           nil];
+    if (self = [super initWithFrame:frame]) {
         
+        int delta = 4;
+		
+		pixels   = (unsigned char*)malloc(delta *vMacScreenNumBytes);
         
-        CVPixelBufferCreate(kCFAllocatorDefault, vMacScreenWidth, vMacScreenHeight, 
-                            kCVPixelFormatType_32ARGB, (CFDictionaryRef)d, &surfaceBuffer);
+        provider = CGDataProviderCreateWithData(NULL, pixels,  delta *vMacScreenNumBytes, NULL);	
         
-        
-        CVPixelBufferLockBaseAddress(surfaceBuffer,0); 
-
-        
-        pixels = (uint8_t *)CVPixelBufferGetBaseAddress(surfaceBuffer);
-        
-        CVPixelBufferUnlockBaseAddress(surfaceBuffer, 0);
-        
-                
-        surfaceLayer = [[CALayer layer] retain];  
-        
+        unsigned char *c;		 
+		c = pixels; 
+		int i;		 
+		for (i=0; i<(delta*vMacScreenWidth*vMacScreenHeight); i++) {		 
+			*c++ = 0;		 
+		}
+       
+        surfaceLayer = [[CALayer layer] retain];   
         [surfaceLayer setEdgeAntialiasingMask:15];
-        [surfaceLayer setOpaque:YES];
-        [surfaceLayer setFrame:[self fixFrame:frame]];
-        
+        [surfaceLayer setFrame:frame];
+        [surfaceLayer setOpaque: YES];   
         [surfaceLayer setMagnificationFilter:magnificationFilter];
         [surfaceLayer setMinificationFilter:minificationFilter];
-    
-
-        [[self layer] addSublayer:surfaceLayer];
-              
+        
+        [[self layer] addSublayer: surfaceLayer];
     }
+    
     return self;
 }
 
 - (void)dealloc {
+    CGColorSpaceRelease(rgbColorSpace);    
+    CGDataProviderRelease(provider);
+    //CGImageRelease(cgImage);
     [surfaceLayer release];
     [super dealloc];
 }
@@ -115,16 +118,9 @@ NSLock* _lock = nil;
 
     // Do not remove this empty function, or you'll break it
     
-    CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB(); 
-    CGColorSpaceRef colorSpace;
-    CGDataProviderRef provider;
-    CGImageRef cgImage;
-    CGContextRef bitmap;
-    
 
-    static unsigned char colorTable[] = {255, 255, 255, 0, 0, 0, 0};
    
-    provider = CGDataProviderCreateWithData(NULL, pixels, vMacScreenNumBytes, NULL);
+    //provider = CGDataProviderCreateWithData(NULL, pixels, vMacScreenNumBytes, NULL);
     
     if (!useColor) {
         
@@ -137,23 +133,31 @@ NSLock* _lock = nil;
     else
     {
         
-        //bitmap = CGBitmapContextCreate(pixels, vMacScreenWidth, vMacScreenHeight, 8, vMacScreenWidth * 4, rgbColorSpace,  kCGImageAlphaPremultipliedLast);
-        bitmap = CGBitmapContextCreate(pixels, vMacScreenWidth, vMacScreenHeight, 8, vMacScreenWidth * 4, rgbColorSpace,  kCGImageAlphaPremultipliedLast);
+        cgImage = CGImageCreate(    
+                                    vMacScreenWidth,
+                                    vMacScreenHeight,
+                                    8, // bpc
+                                    32, // bpp
+                                    4 * vMacScreenWidth, // bpr
+                                    rgbColorSpace,
+                                    kCGBitmapByteOrder32Host| kCGImageAlphaNoneSkipLast,
+                                    provider,
+                                    NULL,
+                                    NO,
+                                    kCGRenderingIntentDefault
+                                    );
         
-        cgImage = CGBitmapContextCreateImage(bitmap);
-        
-        //cgImage = CGImageCreate(vMacScreenWidth, vMacScreenHeight, 3, 3, vMacScreenWidth * 4, rgbColorSpace, 0, provider, NULL, false, kCGRenderingIntentDefault);
-        
-        CFRelease(bitmap);
     }
 
-
     [surfaceLayer setContents:(id)cgImage];
-    [surfaceLayer setFrame:rect];
+
+//    CGContextRef ctx = UIGraphicsGetCurrentContext();
+//    CGContextScaleCTM(ctx, 1.0, -1.0);
+//    CGContextDrawImage(ctx, CGRectMake(0, -vMacScreenHeight,vMacScreenWidth,vMacScreenHeight), cgImage);
+
+    CGImageRelease (cgImage);
     
-    CGColorSpaceRelease(rgbColorSpace);    
-    CGDataProviderRelease(provider);
-    CGImageRelease(cgImage);
+
 }
 
 

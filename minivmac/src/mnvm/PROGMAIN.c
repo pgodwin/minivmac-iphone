@@ -187,7 +187,7 @@ LOCALPROC SixtiethSecondNotify(void)
 LOCALPROC SixtiethEndNotify(void)
 {
 	SubTickTaskEnd();
-	//Mouse_EndTickNotify();
+	Mouse_EndTickNotify();
 	Screen_EndTickNotify();
 #if dbglog_HAVE && 0
 	dbglog_StartLine();

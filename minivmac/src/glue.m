@@ -32,6 +32,7 @@ short* SurfaceScrnBuf;
 BOOL useColorMode;
 short* pixelConversionTable;
 id _gScreenView;
+SEL _updateColorMode;
 ui5b MacDateDiff;
 #define UsecPerSec 1000000
 #define MyInvTimeStep 16626 /* UsecPerSec / 60.14742 */
@@ -97,7 +98,7 @@ void updateScreen (si3b TimeAdjust)
     si4b top, left, bottom, right;
     
     // has the screen changed?
-//    if (!ScreenFindChanges(GetCurDrawBuff(), TimeAdjust, &top, &left, &bottom, &right)) return;
+    
     //screencomparebuff = GetCurDrawBuff();
     //GetCurDrawBuff();
     // convert the pixels
@@ -105,10 +106,14 @@ void updateScreen (si3b TimeAdjust)
 
     //[_gScreenView useColorMode:false];
 
-    UpdateLuminanceCopy(0, 0, vMacScreenHeight, vMacScreenWidth);
 	//MyMoveBytes((anyp) ScalingBuff, (anyp)SurfaceScrnBuf, vMacScreenNumBytes);
 //    MyMoveBytes((anyp) ScalingBuff, (anyp)SurfaceScrnBuf, vMacScreenNumBytes);
     
+    
+        
+    UpdateLuminanceCopy(0, 0, vMacScreenHeight, vMacScreenWidth);
+    
+    //if (!ScreenFindChanges(ScalingBuff, TimeAdjust, &top, &left, &bottom, &right)) return;
     
     MyMoveBytes((anyp) ScalingBuff, (anyp)SurfaceScrnBuf, 
                 vMacScreenNumPixels
@@ -117,7 +122,7 @@ void updateScreen (si3b TimeAdjust)
         #endif
                 );
     
-    objc_msgSend(_gScreenView, "useColorMode:", UseColorMode);
+    objc_msgSend(_gScreenView, _updateColorMode, UseColorMode);
     objc_msgSend(_gScreenView, @selector(setNeedsDisplay));
     
 }
@@ -363,8 +368,13 @@ LOCALPROC RunEmulatedTicksToTrueTime(void)
 			AutoScrollScreen();
 		}
 #endif
-		updateScreen(n);
         
+        if (ScreenChangedBottom > ScreenChangedTop) {
+//            MyDrawWithOpenGL(ScreenChangedTop, ScreenChangedLeft,
+//                             ScreenChangedBottom, ScreenChangedRight);
+            updateScreen(n);
+        }
+                
 		if (ExtraTimeNotOver() && (--n > 0)) {
 			/* lagging, catch up */
             
@@ -403,25 +413,24 @@ void runTick (CFRunLoopTimerRef timer, void* info)
 #pragma mark Misc
 #endif
 
-//GLOBALPROC MyMoveBytes(anyp srcPtr, anyp destPtr, si5b byteCount)
-//{
-//    memcpy((char *)destPtr, (char *)srcPtr, byteCount);
-//}
+
 
 #if 0
 #pragma mark -
 #pragma mark Floppy Driver
 #endif
 
-GLOBALFUNC si4b vSonyRead(void *Buffer, ui4b Drive_No, ui5b Sony_Start, ui5b *Sony_Count)
-{
-    return [_vmacAppSharedInstance readFromDrive:Drive_No start:Sony_Start count:Sony_Count buffer:Buffer];
-}
+//GLOBALFUNC si4b vSonyRead(void *Buffer, ui4b Drive_No, ui5b Sony_Start, ui5b *Sony_Count)
+//{
+//    return [_vmacAppSharedInstance readFromDrive:Drive_No start:Sony_Start count:Sony_Count buffer:Buffer];
+//}
+//
+//GLOBALFUNC si4b vSonyWrite(void *Buffer, ui4b Drive_No, ui5b Sony_Start, ui5b *Sony_Count)
+//{
+//    return [_vmacAppSharedInstance writeToDrive:Drive_No start:Sony_Start count:Sony_Count buffer:Buffer];
+//}
 
-GLOBALFUNC si4b vSonyWrite(void *Buffer, ui4b Drive_No, ui5b Sony_Start, ui5b *Sony_Count)
-{
-    return [_vmacAppSharedInstance writeToDrive:Drive_No start:Sony_Start count:Sony_Count buffer:Buffer];
-}
+#define To_tMacErr(result) ((tMacErr)(ui4b)(result))
 
 GLOBALFUNC si4b vSonyGetSize(ui4b Drive_No, ui5b *Sony_Count)
 {
@@ -437,7 +446,7 @@ GLOBALFUNC tMacErr vSonyTransfer(blnr IsWrite, ui3p Buffer,
                                  tDrive Drive_No, ui5r Sony_Start, ui5r Sony_Count,
                                  ui5r *Sony_ActCount)
 {
-	return [_vmacAppSharedInstance sonyTransfer:Drive_No isWrite: IsWrite start: Sony_Start count: Sony_Count actCount: Sony_ActCount buffer:Buffer];
+	return To_tMacErr([_vmacAppSharedInstance sonyTransfer:Drive_No isWrite: IsWrite start: Sony_Start count: Sony_Count actCount: Sony_ActCount buffer:Buffer]);
 }
 
 
