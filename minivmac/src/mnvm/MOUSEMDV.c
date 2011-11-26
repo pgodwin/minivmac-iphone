@@ -24,10 +24,18 @@
 */
 
 #ifndef AllFiles
+//#include "SYSDEPNS.h"
+//#include "MYOSGLUE.h"
+//#include "ENDIANAC.h"
+//#include "ADDRSPAC.h"
+//#include "SCCEMDEV.h"
+//#include "GLOBGLUE.h"
+
 #include "SYSDEPNS.h"
 #include "MYOSGLUE.h"
 #include "ENDIANAC.h"
-#include "ADDRSPAC.h"
+#include "EMCONFIG.h"
+#include "GLOBGLUE.h"
 #include "SCCEMDEV.h"
 #endif
 

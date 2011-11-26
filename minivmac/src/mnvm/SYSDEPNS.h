@@ -26,39 +26,19 @@
 
 #include "CNFGGLOB.h"
 
-#ifndef MayInline
-#define MayInline
-#endif
 
-#ifndef MayNotInline
-#define MayNotInline
-#endif
+typedef ui3b *ui3p;
+typedef ui4b *ui4p;
+typedef ui5b *ui5p;
 
-#ifndef UnusedParam
-#define UnusedParam(p) (void) p
-#endif
-
-#ifndef BigEndianUnaligned
-#define BigEndianUnaligned 0
-#endif
-
-/* If char has more then 8 bits, good night. */
-typedef unsigned char ui3b;
-typedef signed char si3b;
-
-/* ui4b should be two byte unsigned integer */
-typedef unsigned short ui4b;
-
-/* si4b should be two byte signed integer */
-typedef short si4b;
-
-/* ui5b should be four byte unsigned integer */
-typedef unsigned long ui5b;
-
-/* si5b should be four byte signed integer */
-typedef long si5b;
-
-typedef ui5b CPTR;
+/*
+	Largest efficiently supported
+	representation types. uimr should be
+	large enough to hold number of elements
+	of any array we will deal with.
+*/
+typedef ui5r uimr;
+typedef si5r simr;
 
 #define blnr int
 #define trueblnr 1
@@ -66,7 +46,6 @@ typedef ui5b CPTR;
 
 #define nullpr ((void *) 0)
 
-typedef ui3b *ui3p;
 #define anyp ui3p
 
 /* pascal string, single byte characters */

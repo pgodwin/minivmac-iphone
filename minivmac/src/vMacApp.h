@@ -5,11 +5,13 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "KeyboardView.h"
 
-#import "SYSDEPNS.h"
-#import "MYOSGLUE.h"
-#import "PROGMAIN.h"
-#import "DATE2SEC.h"
-#import "CNFGGLOB.h"
+//#import "SYSDEPNS.h"
+//#import "MYOSGLUE.h"
+//#import "PROGMAIN.h"
+//#import "DATE2SEC.h"
+//#import "CNFGGLOB.h"
+//#import "CNFGRAPI.h"
+
 
 #define kMacEpoch 2082844800
 #define MyTickDuration (1/60.14742)
@@ -84,7 +86,8 @@ typedef enum Direction {
     NSMutableSet*   openAlerts;
     NSFileHandle*   drives[NumDrives];
     NSString*       drivePath[NumDrives];
-    NSData*         romData;
+    //NSData*         romData;
+    NSData*      romData;
     NSArray*        searchPaths;
     SystemSoundID   ejectSound;
     
@@ -130,19 +133,19 @@ typedef enum Direction {
 @end
 
 
-#ifndef RomFileName
-#if CurEmu <= kEmu512K
-#define RomFileName "Mac128K.ROM"
-#elif CurEmu <= kEmuPlus
-#define RomFileName "vMac.ROM"
-#elif CurEmu <= kEmuSE
-#define RomFileName "MacSE.ROM"
-#elif CurEmu <= kEmuClassic
-#define RomFileName "Classic.ROM"
-#else
-#error "RomFileName not defined"
-#endif
-#endif
+//#ifndef RomFileName
+//#if CurEmu <= kEmu512K
+//#define RomFileName "Mac128K.ROM"
+//#elif CurEmu <= kEmuPlus
+//#define RomFileName "vMac.ROM"
+//#elif CurEmu <= kEmuSE
+//#define RomFileName "MacSE.ROM"
+//#elif CurEmu <= kEmuClassic
+//#define RomFileName "Classic.ROM"
+//#else
+//#error "RomFileName not defined"
+//#endif
+//#endif
 
 extern vMacApp* _vmacAppSharedInstance;
 extern NSInteger numInsertedDisks;

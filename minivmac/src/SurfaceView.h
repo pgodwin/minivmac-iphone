@@ -41,10 +41,6 @@ extern PixelFormat kPixelFormatARGB;
     
     CGSize                  surfaceSize;
     CGRect                  fakeFrame;
-    
-
- 
-    
 }
 
 
@@ -54,15 +50,6 @@ extern PixelFormat kPixelFormatARGB;
 @property (nonatomic, retain) NSString* magnificationFilter;
 @property (nonatomic, retain) NSString* minificationFilter;
 
-@property (readonly, nonatomic, getter=isAnimating) BOOL animating;
-@property (nonatomic) NSInteger animationFrameInterval;
-
-- (void)startAnimation;
-
-- (void)stopAnimation;
-
-- (void)drawView;
-
 - (id)initWithFrame:(CGRect)frame pixelFormat:(PixelFormat)pxf;
 - (id)initWithFrame:(CGRect)frame pixelFormat:(PixelFormat)pxf surfaceSize:(CGSize)size;
 - (id)initWithFrame:(CGRect)frame pixelFormat:(PixelFormat)pxf scalingFilter:(NSString*)scalingFilter;
@@ -70,4 +57,5 @@ extern PixelFormat kPixelFormatARGB;
 - (id)initWithFrame:(CGRect)frame pixelFormat:(PixelFormat)pxf magnificationFilter:(NSString*)magnificationFilter minificationFilter:(NSString*)minificationFilter;
 - (id)initWithFrame:(CGRect)frame pixelFormat:(PixelFormat)pxf surfaceSize:(CGSize)size magnificationFilter:(NSString*)magnificationFilter minificationFilter:(NSString*)minificationFilter;
 - (CGRect)fixFrame: (CGRect)frame;
+- (void)useColorMode: (BOOL)useColor;
 @end

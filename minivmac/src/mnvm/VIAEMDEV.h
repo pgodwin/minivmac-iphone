@@ -20,21 +20,29 @@
 #define VIAEMDEV_H
 #endif
 
-/* PC - VIA Memory Handlers */
+EXPORTPROC VIA1_Zap(void);
+EXPORTPROC VIA1_Reset(void);
 
-EXPORTPROC VIA_Zap(void);
-EXPORTPROC VIA_Reset(void);
+EXPORTFUNC ui5b VIA1_Access(ui5b Data, blnr WriteMem, CPTR addr);
 
-EXPORTFUNC ui5b VIA_Access(ui5b Data, blnr WriteMem, CPTR addr);
+EXPORTPROC VIA1_ExtraTimeBegin(void);
+EXPORTPROC VIA1_ExtraTimeEnd(void);
+#ifdef VIA1_iCA1_PulseNtfy
+EXPORTPROC VIA1_iCA1_PulseNtfy(void);
+#endif
+#ifdef VIA1_iCA2_PulseNtfy
+EXPORTPROC VIA1_iCA2_PulseNtfy(void);
+#endif
+#ifdef VIA1_iCB1_PulseNtfy
+EXPORTPROC VIA1_iCB1_PulseNtfy(void);
+#endif
+#ifdef VIA1_iCB2_PulseNtfy
+EXPORTPROC VIA1_iCB2_PulseNtfy(void);
+#endif
+EXPORTPROC VIA1_DoTimer1Check(void);
+EXPORTPROC VIA1_DoTimer2Check(void);
 
-EXPORTPROC VIA_ExtraTimeBegin(void);
-EXPORTPROC VIA_ExtraTimeEnd(void);
-EXPORTPROC VIA_Int_Vertical_Blanking(void);
-EXPORTPROC VIA_Int_One_Second(void);
-EXPORTPROC VIA_DoTimer1Check(void);
-EXPORTPROC VIA_DoTimer2Check(void);
+EXPORTFUNC ui4b VIA1_GetT1InvertTime(void);
 
-EXPORTFUNC ui4b GetSoundInvertTime(void);
-
-EXPORTPROC VIA_ShiftInData(ui3b v);
-EXPORTFUNC ui3b VIA_ShiftOutData(void);
+EXPORTPROC VIA1_ShiftInData(ui3b v);
+EXPORTFUNC ui3b VIA1_ShiftOutData(void);

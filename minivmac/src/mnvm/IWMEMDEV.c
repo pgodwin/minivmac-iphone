@@ -15,22 +15,26 @@
 */
 
 /*
-	Integrated Woz Macine EMulated DEVice
+	Integrated Woz Machine EMulated DEVice
 
 	Emulates the IWM found in the Mac Plus.
 
 	This code is adapted from "IWM.c" in vMac by Philip Cummins.
 */
 
-/* This is the emulation for the IWM, the Integrated Woz Machine. It's basically */
-/* a serial to parallel converter with some timing in-built into it to perform */
-/* handshaking. Emulation so far just includes Status and Mode Register Accesses. */
+/*
+	This is the emulation for the IWM, the Integrated Woz Machine.
+	It's basically a serial to parallel converter with some timing
+	in-built into it to perform handshaking. Emulation so far just
+	includes Status and Mode Register Accesses.
+*/
 
 #ifndef AllFiles
 #include "SYSDEPNS.h"
 
 #include "MYOSGLUE.h"
-#include "ADDRSPAC.h"
+#include "EMCONFIG.h"
+#include "GLOBGLUE.h"
 #endif
 
 #include "IWMEMDEV.h"
@@ -77,7 +81,8 @@ IWM_Ty IWM;
 
 GLOBALPROC IWM_Reset(void)
 {
-	IWM.DataIn = IWM.Handshake = IWM.Status = IWM.Mode = IWM.DataOut = IWM.Lines = 0;
+	IWM.DataIn = IWM.Handshake = IWM.Status = IWM.Mode =
+		IWM.DataOut = IWM.Lines = 0;
 }
 
 typedef enum {On, Off} Mode_Ty;
@@ -91,8 +96,54 @@ LOCALPROC IWM_Set_Lines(ui3b line, Mode_Ty the_mode)
 	}
 }
 
-FORWARDFUNC ui3b IWM_Read_Reg(void);
-FORWARDPROC IWM_Write_Reg(ui3b in);
+LOCALFUNC ui3b IWM_Read_Reg(void)
+{
+	switch ((IWM.Lines & (kq6 + kq7)) >> 6) {
+		case 0 :
+#if (CurEmMd >= kEmMd_SE) && (CurEmMd <= kEmMd_IIx)
+			/* don't report */
+#else
+			ReportAbnormal("IWM Data Read");
+#endif
+#ifdef _IWM_Debug
+			printf("IWM Data Read\n");
+#endif
+			return IWM.DataIn;
+			break;
+		case 1 :
+#ifdef _IWM_Debug
+			printf("IWM Status Read\n");
+#endif
+			return IWM.Status;
+			break;
+		case 2 :
+			ReportAbnormal("IWM Handshake Read");
+#ifdef _IWM_Debug
+			printf("IWM Handshake Read\n");
+#endif
+			return IWM.Handshake;
+			break;
+		case 3 :
+		default :
+			/*
+				should alway be in 0-3,
+				but compiler warnings don't know that
+			*/
+			return 0;
+			break;
+	}
+}
+
+LOCALPROC IWM_Write_Reg(ui3b in)
+{
+	if (((IWM.Lines & kmtr) >> 4) == 0) {
+#ifdef _IWM_Debug
+		printf("IWM Mode Register Write\n");
+#endif
+		IWM.Mode = in;
+		IWM.Status = ((IWM.Status & 0xE0) + (IWM.Mode & 0x1F));
+	}
+}
 
 GLOBALFUNC ui5b IWM_Access(ui5b Data, blnr WriteMem, CPTR addr)
 {
@@ -154,50 +205,6 @@ GLOBALFUNC ui5b IWM_Access(ui5b Data, blnr WriteMem, CPTR addr)
 			IWM_Set_Lines(kq7, On);
 			break;
 	}
+
 	return Data;
-}
-
-LOCALFUNC ui3b IWM_Read_Reg(void)
-{
-	switch ((IWM.Lines & (kq6 + kq7)) >> 6) {
-		case 0 :
-#if TempDebug && (CurEmu >= kEmuSE1M)
-			/* don't report */
-#else
-			ReportAbnormal("IWM Data Read");
-#endif
-#ifdef _IWM_Debug
-			printf("IWM Data Read\n");
-#endif
-			return IWM.DataIn;
-			break;
-		case 1 :
-#ifdef _IWM_Debug
-			printf("IWM Status Read\n");
-#endif
-			return IWM.Status;
-			break;
-		case 2 :
-			ReportAbnormal("IWM Handshake Read");
-#ifdef _IWM_Debug
-			printf("IWM Handshake Read\n");
-#endif
-			return IWM.Handshake;
-			break;
-		case 3 :
-		default : /* should alway be in 0-3, but compiler warnings don't know that */
-			return 0;
-			break;
-	}
-}
-
-LOCALPROC IWM_Write_Reg(ui3b in)
-{
-	if (((IWM.Lines & kmtr) >> 4) == 0) {
-#ifdef _IWM_Debug
-		printf("IWM Mode Register Write\n");
-#endif
-		IWM.Mode = in;
-		IWM.Status = ((IWM.Status & 0xE0) + (IWM.Mode & 0x1F));
-	}
 }

@@ -298,6 +298,13 @@ zydeco
 
 1123
 
+Build String
+file
+0
+
+
+add
+
 RTCEMDEV.c
 file
 
@@ -468,6 +475,13 @@ zydeco
 
 2179
 
+MOUSEMDV.c.old
+file
+0
+
+
+add
+
 SCSIEMDV.c
 file
 
@@ -603,6 +617,13 @@ zydeco
 
 
 751
+
+MOUSEMDV.h.old
+file
+0
+
+
+add
 
 PLATGLUE.h
 file
@@ -958,6 +979,13 @@ zydeco
 
 2242
 
+MYOSGLUE.old
+file
+0
+
+
+add
+
 CONTROLM.h
 file
 
@@ -1242,7 +1270,7 @@ file
 
 
 
-
+delete
 2011-11-21T14:01:37.000000Z
 aff624b6bedaec8ee43ce1a2650260e9
 2009-02-25T10:58:33.621600Z
@@ -1304,6 +1332,13 @@ zydeco
 
 
 719
+
+PLATGLUE.H
+file
+0
+
+
+add
 
 STRCONST.h
 file
@@ -1378,7 +1413,7 @@ file
 
 
 
-
+delete
 2011-11-21T14:01:37.000000Z
 0a04483b3732e3fd42ff83d8c632c769
 2009-02-25T10:58:33.621600Z
@@ -1440,6 +1475,20 @@ zydeco
 
 
 450
+
+MYOSGLUE.h.old
+file
+0
+
+
+add
+
+PROGMAIN.c.old
+file
+0
+
+
+add
 
 EMCONFIG.h
 file

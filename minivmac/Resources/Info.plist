@@ -6,14 +6,14 @@
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
 	<string>Mini vMac</string>
-	<key>CFBundleLongName</key>
-	<string>Mini vMac for iPhone</string>
 	<key>CFBundleExecutable</key>
 	<string>minivmac</string>
 	<key>CFBundleIdentifier</key>
 	<string>net.namedfork.minivmac</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleLongName</key>
+	<string>Mini vMac for iPhone</string>
 	<key>CFBundleName</key>
 	<string>minivmac</string>
 	<key>CFBundlePackageType</key>
@@ -24,15 +24,17 @@
 	<string>BUNDLE_VERSION</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>SignerIdentity</key>
-	<string>Apple iPhone OS Application Signing</string>
-	<key>UIPrerenderedIcon</key>
-	<true/>
-	<key>UIInterfaceOrientation</key>
-	<string>UIInterfaceOrientationLandscapeRight</string>
-	<key>UIStatusBarHidden</key>
-	<true/>
 	<key>SBWillUseCustomIcon</key>
 	<true/>
+	<key>SignerIdentity</key>
+	<string>Apple iPhone OS Application Signing</string>
+	<key>UIInterfaceOrientation</key>
+	<string>UIInterfaceOrientationLandscapeRight</string>
+	<key>UIPrerenderedIcon</key>
+	<true/>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array/>
 </dict>
 </plist>

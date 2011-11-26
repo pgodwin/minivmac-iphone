@@ -7,6 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C14B18A0147E0A5F00A11CFF /* ADBEMDEV.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B1869147E0A5F00A11CFF /* ADBEMDEV.c */; };
+		C14B18A1147E0A5F00A11CFF /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = C14B186C147E0A5F00A11CFF /* AppIcon.icns */; };
+		C14B18A2147E0A5F00A11CFF /* ASCEMDEV.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B186D147E0A5F00A11CFF /* ASCEMDEV.c */; };
+		C14B18A3147E0A5F00A11CFF /* Build String in Resources */ = {isa = PBXBuildFile; fileRef = C14B186F147E0A5F00A11CFF /* Build String */; };
+		C14B18A4147E0A5F00A11CFF /* dummy.txt in Resources */ = {isa = PBXBuildFile; fileRef = C14B1878147E0A5F00A11CFF /* dummy.txt */; };
+		C14B18A5147E0A5F00A11CFF /* GLOBGLUE.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B187C147E0A5F00A11CFF /* GLOBGLUE.c */; };
+		C14B18A6147E0A5F00A11CFF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C14B187E147E0A5F00A11CFF /* Info.plist */; };
+		C14B18A7147E0A5F00A11CFF /* IWMEMDEV.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B1880147E0A5F00A11CFF /* IWMEMDEV.c */; };
+		C14B18A8147E0A5F00A11CFF /* M68KITAB.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B1882147E0A5F00A11CFF /* M68KITAB.c */; };
+		C14B18A9147E0A5F00A11CFF /* MINEM68K.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B1884147E0A5F00A11CFF /* MINEM68K.c */; };
+		C14B18AE147E0A5F00A11CFF /* RTCEMDEV.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B188E147E0A5F00A11CFF /* RTCEMDEV.c */; };
+		C14B18AF147E0A5F00A11CFF /* SCCEMDEV.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B1890147E0A5F00A11CFF /* SCCEMDEV.c */; };
+		C14B18B1147E0A5F00A11CFF /* SCSIEMDV.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B1894147E0A5F00A11CFF /* SCSIEMDV.c */; };
+		C14B18B2147E0A5F00A11CFF /* SONYEMDV.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B1896147E0A5F00A11CFF /* SONYEMDV.c */; };
+		C14B18B3147E0A5F00A11CFF /* VIA2EMDV.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B189A147E0A5F00A11CFF /* VIA2EMDV.c */; };
+		C14B18B4147E0A5F00A11CFF /* VIAEMDEV.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B189C147E0A5F00A11CFF /* VIAEMDEV.c */; };
+		C14B18B5147E0A5F00A11CFF /* VIDEMDEV.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B189E147E0A5F00A11CFF /* VIDEMDEV.c */; };
+		C14B18BD147E117D00A11CFF /* vMacApp.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FEA147A5191009C3F2F /* vMacApp.m */; };
+		C14B18C6147E157400A11CFF /* MOUSEMDV.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B18C4147E157400A11CFF /* MOUSEMDV.c */; };
+		C14B18C9147E2BC900A11CFF /* PROGMAIN.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B18C8147E2BC800A11CFF /* PROGMAIN.c */; };
+		C14B18D3147E74C100A11CFF /* Glue.m in Sources */ = {isa = PBXBuildFile; fileRef = C14B18D2147E74BD00A11CFF /* Glue.m */; };
+		C14B18DA147F312800A11CFF /* ROMEMDEV.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B188C147E0A5F00A11CFF /* ROMEMDEV.c */; };
+		C14B18DB147F318400A11CFF /* SCRNEMDV.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B1892147E0A5F00A11CFF /* SCRNEMDV.c */; };
+		C14B18E5147F36AE00A11CFF /* MacIIx.ROM in Resources */ = {isa = PBXBuildFile; fileRef = C14B18E0147F36AE00A11CFF /* MacIIx.ROM */; };
 		C1CD3E3B147A50E7009C3F2F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD3E3A147A50E7009C3F2F /* QuartzCore.framework */; };
 		C1CD3E3D147A50E7009C3F2F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD3E3C147A50E7009C3F2F /* OpenGLES.framework */; };
 		C1CD3E3F147A50E7009C3F2F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD3E3E147A50E7009C3F2F /* OpenAL.framework */; };
@@ -119,44 +143,22 @@
 		C1CD3FA1147A50E9009C3F2F /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FA0147A50E9009C3F2F /* RootViewController.m */; };
 		C1CD3FA4147A50E9009C3F2F /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FA3147A50E9009C3F2F /* HelloWorldLayer.m */; };
 		C1CD3FEB147A5192009C3F2F /* ExtendedAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FAC147A5190009C3F2F /* ExtendedAttributes.m */; };
-		C1CD3FEC147A5192009C3F2F /* glue.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FAD147A5190009C3F2F /* glue.m */; };
 		C1CD3FED147A5192009C3F2F /* InsertDiskView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FAF147A5190009C3F2F /* InsertDiskView.m */; };
 		C1CD3FEE147A5192009C3F2F /* KBKey.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FB1147A5190009C3F2F /* KBKey.m */; };
 		C1CD3FEF147A5192009C3F2F /* KeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FB3147A5190009C3F2F /* KeyboardView.m */; };
 		C1CD3FF0147A5192009C3F2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FB4147A5190009C3F2F /* main.m */; };
 		C1CD3FF1147A5192009C3F2F /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FB6147A5190009C3F2F /* MainView.m */; };
-		C1CD3FF3147A5192009C3F2F /* GLOBGLUE.c in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FC0147A5191009C3F2F /* GLOBGLUE.c */; };
-		C1CD3FF4147A5192009C3F2F /* IWMEMDEV.c in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FC2147A5191009C3F2F /* IWMEMDEV.c */; };
-		C1CD3FF5147A5192009C3F2F /* KBRDEMDV.c in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FC4147A5191009C3F2F /* KBRDEMDV.c */; };
-		C1CD3FF6147A5192009C3F2F /* MINEM68K.c in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FC6147A5191009C3F2F /* MINEM68K.c */; };
-		C1CD3FF7147A5192009C3F2F /* MOUSEMDV.c in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FC8147A5191009C3F2F /* MOUSEMDV.c */; };
-		C1CD3FF9147A5192009C3F2F /* PROGMAIN.c in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FCD147A5191009C3F2F /* PROGMAIN.c */; };
-		C1CD3FFA147A5192009C3F2F /* ROMEMDEV.c in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FCF147A5191009C3F2F /* ROMEMDEV.c */; };
-		C1CD3FFB147A5192009C3F2F /* RTCEMDEV.c in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FD1147A5191009C3F2F /* RTCEMDEV.c */; };
-		C1CD3FFC147A5192009C3F2F /* SCCEMDEV.c in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FD3147A5191009C3F2F /* SCCEMDEV.c */; };
-		C1CD3FFD147A5192009C3F2F /* SCRNEMDV.c in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FD5147A5191009C3F2F /* SCRNEMDV.c */; };
-		C1CD3FFE147A5192009C3F2F /* SCSIEMDV.c in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FD7147A5191009C3F2F /* SCSIEMDV.c */; };
-		C1CD3FFF147A5192009C3F2F /* SNDEMDEV.c in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FD9147A5191009C3F2F /* SNDEMDEV.c */; };
-		C1CD4000147A5192009C3F2F /* SONYEMDV.c in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FDB147A5191009C3F2F /* SONYEMDV.c */; };
-		C1CD4001147A5192009C3F2F /* VIAEMDEV.c in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FDF147A5191009C3F2F /* VIAEMDEV.c */; };
 		C1CD4002147A5192009C3F2F /* NewDiskView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FE2147A5191009C3F2F /* NewDiskView.m */; };
 		C1CD4003147A5192009C3F2F /* SettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FE5147A5191009C3F2F /* SettingsView.m */; };
 		C1CD4004147A5192009C3F2F /* SurfaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FE7147A5191009C3F2F /* SurfaceView.m */; };
-		C1CD4005147A5192009C3F2F /* vMacApp.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FEA147A5191009C3F2F /* vMacApp.m */; };
-		C1CD4043147A51D0009C3F2F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C1CD4006147A51CC009C3F2F /* Default.png */; };
 		C1CD4044147A51D0009C3F2F /* diskEject.aiff in Resources */ = {isa = PBXBuildFile; fileRef = C1CD4007147A51CC009C3F2F /* diskEject.aiff */; };
 		C1CD4045147A51D0009C3F2F /* DiskListFloppy.png in Resources */ = {isa = PBXBuildFile; fileRef = C1CD4008147A51CC009C3F2F /* DiskListFloppy.png */; };
 		C1CD4046147A51D0009C3F2F /* DiskListHD.png in Resources */ = {isa = PBXBuildFile; fileRef = C1CD4009147A51CC009C3F2F /* DiskListHD.png */; };
 		C1CD4047147A51D0009C3F2F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1CD400B147A51CD009C3F2F /* Localizable.strings */; };
 		C1CD4048147A51D0009C3F2F /* ES.kbdlayout in Resources */ = {isa = PBXBuildFile; fileRef = C1CD400D147A51CD009C3F2F /* ES.kbdlayout */; };
-		C1CD4049147A51D0009C3F2F /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = C1CD400E147A51CD009C3F2F /* fps_images.png */; };
 		C1CD404A147A51D0009C3F2F /* HE.kbdlayout in Resources */ = {isa = PBXBuildFile; fileRef = C1CD400F147A51CD009C3F2F /* HE.kbdlayout */; };
 		C1CD404B147A51D0009C3F2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1CD4011147A51CD009C3F2F /* InfoPlist.strings */; };
 		C1CD404C147A51D0009C3F2F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1CD4013147A51CD009C3F2F /* Localizable.strings */; };
-		C1CD404F147A51D0009C3F2F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = C1CD4017147A51CD009C3F2F /* Icon-Small.png */; };
-		C1CD4051147A51D0009C3F2F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C1CD4019147A51CD009C3F2F /* Icon.png */; };
-		C1CD4053147A51D0009C3F2F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1CD401B147A51CD009C3F2F /* Info.plist */; };
-		C1CD4054147A51D0009C3F2F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = C1CD401C147A51CD009C3F2F /* iTunesArtwork */; };
 		C1CD4055147A51D0009C3F2F /* KBBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = C1CD401D147A51CD009C3F2F /* KBBackground.png */; };
 		C1CD4056147A51D0009C3F2F /* KBBackspace-Down.png in Resources */ = {isa = PBXBuildFile; fileRef = C1CD401E147A51CD009C3F2F /* KBBackspace-Down.png */; };
 		C1CD4057147A51D0009C3F2F /* KBBackspace-Up.png in Resources */ = {isa = PBXBuildFile; fileRef = C1CD401F147A51CD009C3F2F /* KBBackspace-Up.png */; };
@@ -194,19 +196,75 @@
 		C1CD4077147A51D0009C3F2F /* US.kbdlayout in Resources */ = {isa = PBXBuildFile; fileRef = C1CD4042147A51D0009C3F2F /* US.kbdlayout */; };
 		C1CD4079147A520D009C3F2F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD4078147A520D009C3F2F /* CoreFoundation.framework */; };
 		C1CD407B147A522A009C3F2F /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD407A147A522A009C3F2F /* CoreAudio.framework */; };
-		C1CD4084147A57A9009C3F2F /* vMac.ROM in Resources */ = {isa = PBXBuildFile; fileRef = C1CD4083147A57A9009C3F2F /* vMac.ROM */; };
 		C1CD4086147A7747009C3F2F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD4085147A7747009C3F2F /* CoreVideo.framework */; };
 		C1CD408C147B3643009C3F2F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD408B147B3643009C3F2F /* CoreText.framework */; };
-		C1CD4093147B4ED5009C3F2F /* ADDRSPAC.c in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FB8147A5191009C3F2F /* ADDRSPAC.c */; };
 		C1CD410F147B83EE009C3F2F /* Disk Tools.dsk in Resources */ = {isa = PBXBuildFile; fileRef = C1CD4109147B83ED009C3F2F /* Disk Tools.dsk */; };
 		C1CD4110147B83EE009C3F2F /* Fonts.image in Resources */ = {isa = PBXBuildFile; fileRef = C1CD410A147B83ED009C3F2F /* Fonts.image */; };
 		C1CD4111147B83EE009C3F2F /* hfs24M.DSK in Resources */ = {isa = PBXBuildFile; fileRef = C1CD410B147B83ED009C3F2F /* hfs24M.DSK */; };
 		C1CD4112147B83EE009C3F2F /* Install 1.image in Resources */ = {isa = PBXBuildFile; fileRef = C1CD410C147B83EE009C3F2F /* Install 1.image */; };
 		C1CD4113147B83EE009C3F2F /* Install 2.image in Resources */ = {isa = PBXBuildFile; fileRef = C1CD410D147B83EE009C3F2F /* Install 2.image */; };
 		C1CD4114147B83EE009C3F2F /* Printing.image in Resources */ = {isa = PBXBuildFile; fileRef = C1CD410E147B83EE009C3F2F /* Printing.image */; };
+		C1CEFEAE147FA4AC000ECF47 /* MacOS755.dsk in Resources */ = {isa = PBXBuildFile; fileRef = C1CEFEAD147FA4AC000ECF47 /* MacOS755.dsk */; };
+		C1CEFEB514808C40000ECF47 /* disk1.dsk in Resources */ = {isa = PBXBuildFile; fileRef = C1CEFEB414808C40000ECF47 /* disk1.dsk */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C14B1869147E0A5F00A11CFF /* ADBEMDEV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ADBEMDEV.c; sourceTree = "<group>"; };
+		C14B186A147E0A5F00A11CFF /* ADBEMDEV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADBEMDEV.h; sourceTree = "<group>"; };
+		C14B186B147E0A5F00A11CFF /* ADBSHARE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADBSHARE.h; sourceTree = "<group>"; };
+		C14B186C147E0A5F00A11CFF /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
+		C14B186D147E0A5F00A11CFF /* ASCEMDEV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ASCEMDEV.c; sourceTree = "<group>"; };
+		C14B186E147E0A5F00A11CFF /* ASCEMDEV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCEMDEV.h; sourceTree = "<group>"; };
+		C14B186F147E0A5F00A11CFF /* Build String */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Build String"; sourceTree = "<group>"; };
+		C14B1870147E0A5F00A11CFF /* CNFGGLOB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNFGGLOB.h; sourceTree = "<group>"; };
+		C14B1871147E0A5F00A11CFF /* CNFGRAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNFGRAPI.h; sourceTree = "<group>"; };
+		C14B1872147E0A5F00A11CFF /* COMOSGLU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COMOSGLU.h; sourceTree = "<group>"; };
+		C14B1873147E0A5F00A11CFF /* CONTROLM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CONTROLM.h; sourceTree = "<group>"; };
+		C14B1874147E0A5F00A11CFF /* DATE2SEC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATE2SEC.h; sourceTree = "<group>"; };
+		C14B1875147E0A5F00A11CFF /* EMCONFIG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCONFIG.h; sourceTree = "<group>"; };
+		C14B1876147E0A5F00A11CFF /* ENDIANAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENDIANAC.h; sourceTree = "<group>"; };
+		C14B1879147E0A5F00A11CFF /* English */ = {isa = PBXFileReference; lastKnownFileType = text; name = English; path = dummy.txt; sourceTree = "<group>"; };
+		C14B187A147E0A5F00A11CFF /* FPCPEMDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPCPEMDV.h; sourceTree = "<group>"; };
+		C14B187B147E0A5F00A11CFF /* FPMATHEM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPMATHEM.h; sourceTree = "<group>"; };
+		C14B187C147E0A5F00A11CFF /* GLOBGLUE.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLOBGLUE.c; sourceTree = "<group>"; };
+		C14B187D147E0A5F00A11CFF /* GLOBGLUE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLOBGLUE.h; sourceTree = "<group>"; };
+		C14B187E147E0A5F00A11CFF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C14B187F147E0A5F00A11CFF /* INTLCHAR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTLCHAR.h; sourceTree = "<group>"; };
+		C14B1880147E0A5F00A11CFF /* IWMEMDEV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IWMEMDEV.c; sourceTree = "<group>"; };
+		C14B1881147E0A5F00A11CFF /* IWMEMDEV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWMEMDEV.h; sourceTree = "<group>"; };
+		C14B1882147E0A5F00A11CFF /* M68KITAB.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = M68KITAB.c; sourceTree = "<group>"; };
+		C14B1883147E0A5F00A11CFF /* M68KITAB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M68KITAB.h; sourceTree = "<group>"; };
+		C14B1884147E0A5F00A11CFF /* MINEM68K.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MINEM68K.c; sourceTree = "<group>"; };
+		C14B1885147E0A5F00A11CFF /* MINEM68K.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MINEM68K.h; sourceTree = "<group>"; };
+		C14B188B147E0A5F00A11CFF /* PROGMAIN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROGMAIN.h; sourceTree = "<group>"; };
+		C14B188C147E0A5F00A11CFF /* ROMEMDEV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ROMEMDEV.c; sourceTree = "<group>"; };
+		C14B188D147E0A5F00A11CFF /* ROMEMDEV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROMEMDEV.h; sourceTree = "<group>"; };
+		C14B188E147E0A5F00A11CFF /* RTCEMDEV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = RTCEMDEV.c; sourceTree = "<group>"; };
+		C14B188F147E0A5F00A11CFF /* RTCEMDEV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCEMDEV.h; sourceTree = "<group>"; };
+		C14B1890147E0A5F00A11CFF /* SCCEMDEV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SCCEMDEV.c; sourceTree = "<group>"; };
+		C14B1891147E0A5F00A11CFF /* SCCEMDEV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCEMDEV.h; sourceTree = "<group>"; };
+		C14B1892147E0A5F00A11CFF /* SCRNEMDV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SCRNEMDV.c; sourceTree = "<group>"; };
+		C14B1893147E0A5F00A11CFF /* SCRNEMDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRNEMDV.h; sourceTree = "<group>"; };
+		C14B1894147E0A5F00A11CFF /* SCSIEMDV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SCSIEMDV.c; sourceTree = "<group>"; };
+		C14B1895147E0A5F00A11CFF /* SCSIEMDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSIEMDV.h; sourceTree = "<group>"; };
+		C14B1896147E0A5F00A11CFF /* SONYEMDV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SONYEMDV.c; sourceTree = "<group>"; };
+		C14B1897147E0A5F00A11CFF /* SONYEMDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SONYEMDV.h; sourceTree = "<group>"; };
+		C14B1898147E0A5F00A11CFF /* STRCONST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRCONST.h; sourceTree = "<group>"; };
+		C14B1899147E0A5F00A11CFF /* SYSDEPNS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYSDEPNS.h; sourceTree = "<group>"; };
+		C14B189A147E0A5F00A11CFF /* VIA2EMDV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VIA2EMDV.c; sourceTree = "<group>"; };
+		C14B189B147E0A5F00A11CFF /* VIA2EMDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIA2EMDV.h; sourceTree = "<group>"; };
+		C14B189C147E0A5F00A11CFF /* VIAEMDEV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VIAEMDEV.c; sourceTree = "<group>"; };
+		C14B189D147E0A5F00A11CFF /* VIAEMDEV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIAEMDEV.h; sourceTree = "<group>"; };
+		C14B189E147E0A5F00A11CFF /* VIDEMDEV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VIDEMDEV.c; sourceTree = "<group>"; };
+		C14B189F147E0A5F00A11CFF /* VIDEMDEV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIDEMDEV.h; sourceTree = "<group>"; };
+		C14B18B6147E0F2D00A11CFF /* MYOSGLUE.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MYOSGLUE.c; sourceTree = "<group>"; };
+		C14B18C3147E147E00A11CFF /* PLATGLUE.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PLATGLUE.H; sourceTree = "<group>"; };
+		C14B18C4147E157400A11CFF /* MOUSEMDV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MOUSEMDV.c; sourceTree = "<group>"; };
+		C14B18C5147E157400A11CFF /* MOUSEMDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOUSEMDV.h; sourceTree = "<group>"; };
+		C14B18C7147E15B500A11CFF /* MYOSGLUE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYOSGLUE.h; sourceTree = "<group>"; };
+		C14B18C8147E2BC800A11CFF /* PROGMAIN.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PROGMAIN.c; sourceTree = "<group>"; };
+		C14B18D2147E74BD00A11CFF /* Glue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Glue.m; path = src/Glue.m; sourceTree = "<group>"; };
+		C14B18E0147F36AE00A11CFF /* MacIIx.ROM */ = {isa = PBXFileReference; lastKnownFileType = file; path = MacIIx.ROM; sourceTree = "<group>"; };
 		C1CD3E36147A50E7009C3F2F /* minivmac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = minivmac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1CD3E3A147A50E7009C3F2F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C1CD3E3C147A50E7009C3F2F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -440,7 +498,6 @@
 		C1CD3FA5147A50E9009C3F2F /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		C1CD3FAB147A5190009C3F2F /* ExtendedAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExtendedAttributes.h; path = src/ExtendedAttributes.h; sourceTree = "<group>"; };
 		C1CD3FAC147A5190009C3F2F /* ExtendedAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExtendedAttributes.m; path = src/ExtendedAttributes.m; sourceTree = "<group>"; };
-		C1CD3FAD147A5190009C3F2F /* glue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = glue.m; path = src/glue.m; sourceTree = "<group>"; };
 		C1CD3FAE147A5190009C3F2F /* InsertDiskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InsertDiskView.h; path = src/InsertDiskView.h; sourceTree = "<group>"; };
 		C1CD3FAF147A5190009C3F2F /* InsertDiskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InsertDiskView.m; path = src/InsertDiskView.m; sourceTree = "<group>"; };
 		C1CD3FB0147A5190009C3F2F /* KBKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBKey.h; path = src/KBKey.h; sourceTree = "<group>"; };
@@ -450,47 +507,6 @@
 		C1CD3FB4147A5190009C3F2F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = src/main.m; sourceTree = "<group>"; };
 		C1CD3FB5147A5190009C3F2F /* MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainView.h; path = src/MainView.h; sourceTree = "<group>"; };
 		C1CD3FB6147A5190009C3F2F /* MainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainView.m; path = src/MainView.m; sourceTree = "<group>"; };
-		C1CD3FB8147A5191009C3F2F /* ADDRSPAC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ADDRSPAC.c; sourceTree = "<group>"; };
-		C1CD3FB9147A5191009C3F2F /* ADDRSPAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADDRSPAC.h; sourceTree = "<group>"; };
-		C1CD3FBA147A5191009C3F2F /* ALTKEYSM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTKEYSM.h; sourceTree = "<group>"; };
-		C1CD3FBB147A5191009C3F2F /* CNFGGLOB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNFGGLOB.h; sourceTree = "<group>"; };
-		C1CD3FBC147A5191009C3F2F /* CNFGRAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNFGRAPI.h; sourceTree = "<group>"; };
-		C1CD3FBD147A5191009C3F2F /* CONTROLM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CONTROLM.h; sourceTree = "<group>"; };
-		C1CD3FBE147A5191009C3F2F /* DATE2SEC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATE2SEC.h; sourceTree = "<group>"; };
-		C1CD3FBF147A5191009C3F2F /* ENDIANAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENDIANAC.h; sourceTree = "<group>"; };
-		C1CD3FC0147A5191009C3F2F /* GLOBGLUE.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLOBGLUE.c; sourceTree = "<group>"; };
-		C1CD3FC1147A5191009C3F2F /* GLOBGLUE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLOBGLUE.h; sourceTree = "<group>"; };
-		C1CD3FC2147A5191009C3F2F /* IWMEMDEV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IWMEMDEV.c; sourceTree = "<group>"; };
-		C1CD3FC3147A5191009C3F2F /* IWMEMDEV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWMEMDEV.h; sourceTree = "<group>"; };
-		C1CD3FC4147A5191009C3F2F /* KBRDEMDV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KBRDEMDV.c; sourceTree = "<group>"; };
-		C1CD3FC5147A5191009C3F2F /* KBRDEMDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBRDEMDV.h; sourceTree = "<group>"; };
-		C1CD3FC6147A5191009C3F2F /* MINEM68K.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MINEM68K.c; sourceTree = "<group>"; };
-		C1CD3FC7147A5191009C3F2F /* MINEM68K.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MINEM68K.h; sourceTree = "<group>"; };
-		C1CD3FC8147A5191009C3F2F /* MOUSEMDV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MOUSEMDV.c; sourceTree = "<group>"; };
-		C1CD3FC9147A5191009C3F2F /* MOUSEMDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOUSEMDV.h; sourceTree = "<group>"; };
-		C1CD3FCA147A5191009C3F2F /* MYOSGLUE.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MYOSGLUE.c; sourceTree = "<group>"; };
-		C1CD3FCB147A5191009C3F2F /* MYOSGLUE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYOSGLUE.h; sourceTree = "<group>"; };
-		C1CD3FCC147A5191009C3F2F /* PLATGLUE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLATGLUE.h; sourceTree = "<group>"; };
-		C1CD3FCD147A5191009C3F2F /* PROGMAIN.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PROGMAIN.c; sourceTree = "<group>"; };
-		C1CD3FCE147A5191009C3F2F /* PROGMAIN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROGMAIN.h; sourceTree = "<group>"; };
-		C1CD3FCF147A5191009C3F2F /* ROMEMDEV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ROMEMDEV.c; sourceTree = "<group>"; };
-		C1CD3FD0147A5191009C3F2F /* ROMEMDEV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROMEMDEV.h; sourceTree = "<group>"; };
-		C1CD3FD1147A5191009C3F2F /* RTCEMDEV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = RTCEMDEV.c; sourceTree = "<group>"; };
-		C1CD3FD2147A5191009C3F2F /* RTCEMDEV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCEMDEV.h; sourceTree = "<group>"; };
-		C1CD3FD3147A5191009C3F2F /* SCCEMDEV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SCCEMDEV.c; sourceTree = "<group>"; };
-		C1CD3FD4147A5191009C3F2F /* SCCEMDEV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCEMDEV.h; sourceTree = "<group>"; };
-		C1CD3FD5147A5191009C3F2F /* SCRNEMDV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SCRNEMDV.c; sourceTree = "<group>"; };
-		C1CD3FD6147A5191009C3F2F /* SCRNEMDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRNEMDV.h; sourceTree = "<group>"; };
-		C1CD3FD7147A5191009C3F2F /* SCSIEMDV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SCSIEMDV.c; sourceTree = "<group>"; };
-		C1CD3FD8147A5191009C3F2F /* SCSIEMDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSIEMDV.h; sourceTree = "<group>"; };
-		C1CD3FD9147A5191009C3F2F /* SNDEMDEV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SNDEMDEV.c; sourceTree = "<group>"; };
-		C1CD3FDA147A5191009C3F2F /* SNDEMDEV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNDEMDEV.h; sourceTree = "<group>"; };
-		C1CD3FDB147A5191009C3F2F /* SONYEMDV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SONYEMDV.c; sourceTree = "<group>"; };
-		C1CD3FDC147A5191009C3F2F /* SONYEMDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SONYEMDV.h; sourceTree = "<group>"; };
-		C1CD3FDD147A5191009C3F2F /* STRCONST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRCONST.h; sourceTree = "<group>"; };
-		C1CD3FDE147A5191009C3F2F /* SYSDEPNS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYSDEPNS.h; sourceTree = "<group>"; };
-		C1CD3FDF147A5191009C3F2F /* VIAEMDEV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VIAEMDEV.c; sourceTree = "<group>"; };
-		C1CD3FE0147A5191009C3F2F /* VIAEMDEV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIAEMDEV.h; sourceTree = "<group>"; };
 		C1CD3FE1147A5191009C3F2F /* NewDiskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewDiskView.h; path = src/NewDiskView.h; sourceTree = "<group>"; };
 		C1CD3FE2147A5191009C3F2F /* NewDiskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewDiskView.m; path = src/NewDiskView.m; sourceTree = "<group>"; };
 		C1CD3FE3147A5191009C3F2F /* prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = prefix.h; path = src/prefix.h; sourceTree = "<group>"; };
@@ -552,8 +568,6 @@
 		C1CD4042147A51D0009C3F2F /* US.kbdlayout */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = US.kbdlayout; path = Resources/US.kbdlayout; sourceTree = "<group>"; };
 		C1CD4078147A520D009C3F2F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		C1CD407A147A522A009C3F2F /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
-		C1CD407C147A5251009C3F2F /* libIOKit.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIOKit.dylib; path = usr/lib/libIOKit.dylib; sourceTree = SDKROOT; };
-		C1CD4083147A57A9009C3F2F /* vMac.ROM */ = {isa = PBXFileReference; lastKnownFileType = file; name = vMac.ROM; path = Resources/vMac.ROM; sourceTree = "<group>"; };
 		C1CD4085147A7747009C3F2F /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		C1CD408B147B3643009C3F2F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		C1CD4109147B83ED009C3F2F /* Disk Tools.dsk */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Disk Tools.dsk"; sourceTree = "<group>"; };
@@ -562,6 +576,8 @@
 		C1CD410C147B83EE009C3F2F /* Install 1.image */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Install 1.image"; sourceTree = "<group>"; };
 		C1CD410D147B83EE009C3F2F /* Install 2.image */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Install 2.image"; sourceTree = "<group>"; };
 		C1CD410E147B83EE009C3F2F /* Printing.image */ = {isa = PBXFileReference; lastKnownFileType = file; path = Printing.image; sourceTree = "<group>"; };
+		C1CEFEAD147FA4AC000ECF47 /* MacOS755.dsk */ = {isa = PBXFileReference; lastKnownFileType = file; path = MacOS755.dsk; sourceTree = "<group>"; };
+		C1CEFEB414808C40000ECF47 /* disk1.dsk */ = {isa = PBXFileReference; lastKnownFileType = file; path = disk1.dsk; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -587,11 +603,87 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C14B1877147E0A5F00A11CFF /* English.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				C14B1878147E0A5F00A11CFF /* dummy.txt */,
+			);
+			path = English.lproj;
+			sourceTree = "<group>";
+		};
+		C14B18CF147E653400A11CFF /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				C14B1898147E0A5F00A11CFF /* STRCONST.h */,
+				C14B186A147E0A5F00A11CFF /* ADBEMDEV.h */,
+				C14B186E147E0A5F00A11CFF /* ASCEMDEV.h */,
+				C14B187D147E0A5F00A11CFF /* GLOBGLUE.h */,
+				C14B1881147E0A5F00A11CFF /* IWMEMDEV.h */,
+				C14B1883147E0A5F00A11CFF /* M68KITAB.h */,
+				C14B1885147E0A5F00A11CFF /* MINEM68K.h */,
+				C14B18C5147E157400A11CFF /* MOUSEMDV.h */,
+				C14B18C7147E15B500A11CFF /* MYOSGLUE.h */,
+				C14B188B147E0A5F00A11CFF /* PROGMAIN.h */,
+				C14B188D147E0A5F00A11CFF /* ROMEMDEV.h */,
+				C14B188F147E0A5F00A11CFF /* RTCEMDEV.h */,
+				C14B1891147E0A5F00A11CFF /* SCCEMDEV.h */,
+				C14B1893147E0A5F00A11CFF /* SCRNEMDV.h */,
+				C14B1895147E0A5F00A11CFF /* SCSIEMDV.h */,
+				C14B1897147E0A5F00A11CFF /* SONYEMDV.h */,
+				C14B189B147E0A5F00A11CFF /* VIA2EMDV.h */,
+				C14B189D147E0A5F00A11CFF /* VIAEMDEV.h */,
+				C14B189F147E0A5F00A11CFF /* VIDEMDEV.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		C14B18D0147E653E00A11CFF /* Includes */ = {
+			isa = PBXGroup;
+			children = (
+				C14B1899147E0A5F00A11CFF /* SYSDEPNS.h */,
+				C14B187F147E0A5F00A11CFF /* INTLCHAR.h */,
+				C14B187B147E0A5F00A11CFF /* FPMATHEM.h */,
+				C14B187A147E0A5F00A11CFF /* FPCPEMDV.h */,
+				C14B1876147E0A5F00A11CFF /* ENDIANAC.h */,
+				C14B1875147E0A5F00A11CFF /* EMCONFIG.h */,
+				C14B1874147E0A5F00A11CFF /* DATE2SEC.h */,
+				C14B1873147E0A5F00A11CFF /* CONTROLM.h */,
+				C14B1872147E0A5F00A11CFF /* COMOSGLU.h */,
+				C14B1871147E0A5F00A11CFF /* CNFGRAPI.h */,
+				C14B1870147E0A5F00A11CFF /* CNFGGLOB.h */,
+				C14B186B147E0A5F00A11CFF /* ADBSHARE.h */,
+			);
+			name = Includes;
+			sourceTree = "<group>";
+		};
+		C14B18D1147E654E00A11CFF /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C14B1869147E0A5F00A11CFF /* ADBEMDEV.c */,
+				C14B186D147E0A5F00A11CFF /* ASCEMDEV.c */,
+				C14B187C147E0A5F00A11CFF /* GLOBGLUE.c */,
+				C14B1880147E0A5F00A11CFF /* IWMEMDEV.c */,
+				C14B1882147E0A5F00A11CFF /* M68KITAB.c */,
+				C14B1884147E0A5F00A11CFF /* MINEM68K.c */,
+				C14B18C4147E157400A11CFF /* MOUSEMDV.c */,
+				C14B18B6147E0F2D00A11CFF /* MYOSGLUE.c */,
+				C14B18C8147E2BC800A11CFF /* PROGMAIN.c */,
+				C14B188C147E0A5F00A11CFF /* ROMEMDEV.c */,
+				C14B188E147E0A5F00A11CFF /* RTCEMDEV.c */,
+				C14B1890147E0A5F00A11CFF /* SCCEMDEV.c */,
+				C14B1892147E0A5F00A11CFF /* SCRNEMDV.c */,
+				C14B1894147E0A5F00A11CFF /* SCSIEMDV.c */,
+				C14B1896147E0A5F00A11CFF /* SONYEMDV.c */,
+				C14B189A147E0A5F00A11CFF /* VIA2EMDV.c */,
+				C14B189C147E0A5F00A11CFF /* VIAEMDEV.c */,
+				C14B189E147E0A5F00A11CFF /* VIDEMDEV.c */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
 		C1CD3E2B147A50E7009C3F2F = {
 			isa = PBXGroup;
 			children = (
-				C1CD408B147B3643009C3F2F /* CoreText.framework */,
-				C1CD4085147A7747009C3F2F /* CoreVideo.framework */,
 				C1CD3E4A147A50E7009C3F2F /* minivmac */,
 				C1CD3E39147A50E7009C3F2F /* Frameworks */,
 				C1CD3E37147A50E7009C3F2F /* Products */,
@@ -609,7 +701,8 @@
 		C1CD3E39147A50E7009C3F2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C1CD407C147A5251009C3F2F /* libIOKit.dylib */,
+				C1CD408B147B3643009C3F2F /* CoreText.framework */,
+				C1CD4085147A7747009C3F2F /* CoreVideo.framework */,
 				C1CD407A147A522A009C3F2F /* CoreAudio.framework */,
 				C1CD4078147A520D009C3F2F /* CoreFoundation.framework */,
 				C1CD3E3A147A50E7009C3F2F /* QuartzCore.framework */,
@@ -629,7 +722,6 @@
 			children = (
 				C1CD3FAB147A5190009C3F2F /* ExtendedAttributes.h */,
 				C1CD3FAC147A5190009C3F2F /* ExtendedAttributes.m */,
-				C1CD3FAD147A5190009C3F2F /* glue.m */,
 				C1CD3FAE147A5190009C3F2F /* InsertDiskView.h */,
 				C1CD3FAF147A5190009C3F2F /* InsertDiskView.m */,
 				C1CD3FB0147A5190009C3F2F /* KBKey.h */,
@@ -638,6 +730,7 @@
 				C1CD3FB3147A5190009C3F2F /* KeyboardView.m */,
 				C1CD3FB4147A5190009C3F2F /* main.m */,
 				C1CD3FB5147A5190009C3F2F /* MainView.h */,
+				C14B18D2147E74BD00A11CFF /* Glue.m */,
 				C1CD3FB6147A5190009C3F2F /* MainView.m */,
 				C1CD3FB7147A5190009C3F2F /* mnvm */,
 				C1CD3FE1147A5191009C3F2F /* NewDiskView.h */,
@@ -667,13 +760,15 @@
 		C1CD3E4B147A50E7009C3F2F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C1CEFEB414808C40000ECF47 /* disk1.dsk */,
+				C14B18E0147F36AE00A11CFF /* MacIIx.ROM */,
 				C1CD4109147B83ED009C3F2F /* Disk Tools.dsk */,
 				C1CD410A147B83ED009C3F2F /* Fonts.image */,
+				C1CEFEAD147FA4AC000ECF47 /* MacOS755.dsk */,
 				C1CD410B147B83ED009C3F2F /* hfs24M.DSK */,
 				C1CD410C147B83EE009C3F2F /* Install 1.image */,
 				C1CD410D147B83EE009C3F2F /* Install 2.image */,
 				C1CD410E147B83EE009C3F2F /* Printing.image */,
-				C1CD4083147A57A9009C3F2F /* vMac.ROM */,
 				C1CD4006147A51CC009C3F2F /* Default.png */,
 				C1CD4007147A51CC009C3F2F /* diskEject.aiff */,
 				C1CD4008147A51CC009C3F2F /* DiskListFloppy.png */,
@@ -1045,47 +1140,14 @@
 		C1CD3FB7147A5190009C3F2F /* mnvm */ = {
 			isa = PBXGroup;
 			children = (
-				C1CD3FB8147A5191009C3F2F /* ADDRSPAC.c */,
-				C1CD3FB9147A5191009C3F2F /* ADDRSPAC.h */,
-				C1CD3FBA147A5191009C3F2F /* ALTKEYSM.h */,
-				C1CD3FBB147A5191009C3F2F /* CNFGGLOB.h */,
-				C1CD3FBC147A5191009C3F2F /* CNFGRAPI.h */,
-				C1CD3FBD147A5191009C3F2F /* CONTROLM.h */,
-				C1CD3FBE147A5191009C3F2F /* DATE2SEC.h */,
-				C1CD3FBF147A5191009C3F2F /* ENDIANAC.h */,
-				C1CD3FC0147A5191009C3F2F /* GLOBGLUE.c */,
-				C1CD3FC1147A5191009C3F2F /* GLOBGLUE.h */,
-				C1CD3FC2147A5191009C3F2F /* IWMEMDEV.c */,
-				C1CD3FC3147A5191009C3F2F /* IWMEMDEV.h */,
-				C1CD3FC4147A5191009C3F2F /* KBRDEMDV.c */,
-				C1CD3FC5147A5191009C3F2F /* KBRDEMDV.h */,
-				C1CD3FC6147A5191009C3F2F /* MINEM68K.c */,
-				C1CD3FC7147A5191009C3F2F /* MINEM68K.h */,
-				C1CD3FC8147A5191009C3F2F /* MOUSEMDV.c */,
-				C1CD3FC9147A5191009C3F2F /* MOUSEMDV.h */,
-				C1CD3FCA147A5191009C3F2F /* MYOSGLUE.c */,
-				C1CD3FCB147A5191009C3F2F /* MYOSGLUE.h */,
-				C1CD3FCC147A5191009C3F2F /* PLATGLUE.h */,
-				C1CD3FCD147A5191009C3F2F /* PROGMAIN.c */,
-				C1CD3FCE147A5191009C3F2F /* PROGMAIN.h */,
-				C1CD3FCF147A5191009C3F2F /* ROMEMDEV.c */,
-				C1CD3FD0147A5191009C3F2F /* ROMEMDEV.h */,
-				C1CD3FD1147A5191009C3F2F /* RTCEMDEV.c */,
-				C1CD3FD2147A5191009C3F2F /* RTCEMDEV.h */,
-				C1CD3FD3147A5191009C3F2F /* SCCEMDEV.c */,
-				C1CD3FD4147A5191009C3F2F /* SCCEMDEV.h */,
-				C1CD3FD5147A5191009C3F2F /* SCRNEMDV.c */,
-				C1CD3FD6147A5191009C3F2F /* SCRNEMDV.h */,
-				C1CD3FD7147A5191009C3F2F /* SCSIEMDV.c */,
-				C1CD3FD8147A5191009C3F2F /* SCSIEMDV.h */,
-				C1CD3FD9147A5191009C3F2F /* SNDEMDEV.c */,
-				C1CD3FDA147A5191009C3F2F /* SNDEMDEV.h */,
-				C1CD3FDB147A5191009C3F2F /* SONYEMDV.c */,
-				C1CD3FDC147A5191009C3F2F /* SONYEMDV.h */,
-				C1CD3FDD147A5191009C3F2F /* STRCONST.h */,
-				C1CD3FDE147A5191009C3F2F /* SYSDEPNS.h */,
-				C1CD3FDF147A5191009C3F2F /* VIAEMDEV.c */,
-				C1CD3FE0147A5191009C3F2F /* VIAEMDEV.h */,
+				C14B186F147E0A5F00A11CFF /* Build String */,
+				C14B18C3147E147E00A11CFF /* PLATGLUE.H */,
+				C14B186C147E0A5F00A11CFF /* AppIcon.icns */,
+				C14B187E147E0A5F00A11CFF /* Info.plist */,
+				C14B1877147E0A5F00A11CFF /* English.lproj */,
+				C14B18D1147E654E00A11CFF /* Sources */,
+				C14B18CF147E653400A11CFF /* Headers */,
+				C14B18D0147E653E00A11CFF /* Includes */,
 			);
 			name = mnvm;
 			path = src/mnvm;
@@ -1179,20 +1241,14 @@
 				C1CD3E55147A50E7009C3F2F /* Icon-Small.png in Resources */,
 				C1CD3E59147A50E7009C3F2F /* Icon.png in Resources */,
 				C1CD3E5E147A50E7009C3F2F /* iTunesArtwork in Resources */,
-				C1CD4043147A51D0009C3F2F /* Default.png in Resources */,
 				C1CD4044147A51D0009C3F2F /* diskEject.aiff in Resources */,
 				C1CD4045147A51D0009C3F2F /* DiskListFloppy.png in Resources */,
 				C1CD4046147A51D0009C3F2F /* DiskListHD.png in Resources */,
 				C1CD4047147A51D0009C3F2F /* Localizable.strings in Resources */,
 				C1CD4048147A51D0009C3F2F /* ES.kbdlayout in Resources */,
-				C1CD4049147A51D0009C3F2F /* fps_images.png in Resources */,
 				C1CD404A147A51D0009C3F2F /* HE.kbdlayout in Resources */,
 				C1CD404B147A51D0009C3F2F /* InfoPlist.strings in Resources */,
 				C1CD404C147A51D0009C3F2F /* Localizable.strings in Resources */,
-				C1CD404F147A51D0009C3F2F /* Icon-Small.png in Resources */,
-				C1CD4051147A51D0009C3F2F /* Icon.png in Resources */,
-				C1CD4053147A51D0009C3F2F /* Info.plist in Resources */,
-				C1CD4054147A51D0009C3F2F /* iTunesArtwork in Resources */,
 				C1CD4055147A51D0009C3F2F /* KBBackground.png in Resources */,
 				C1CD4056147A51D0009C3F2F /* KBBackspace-Down.png in Resources */,
 				C1CD4057147A51D0009C3F2F /* KBBackspace-Up.png in Resources */,
@@ -1228,13 +1284,19 @@
 				C1CD4075147A51D0009C3F2F /* Localizable.strings in Resources */,
 				C1CD4076147A51D0009C3F2F /* UK.kbdlayout in Resources */,
 				C1CD4077147A51D0009C3F2F /* US.kbdlayout in Resources */,
-				C1CD4084147A57A9009C3F2F /* vMac.ROM in Resources */,
 				C1CD410F147B83EE009C3F2F /* Disk Tools.dsk in Resources */,
 				C1CD4110147B83EE009C3F2F /* Fonts.image in Resources */,
 				C1CD4111147B83EE009C3F2F /* hfs24M.DSK in Resources */,
 				C1CD4112147B83EE009C3F2F /* Install 1.image in Resources */,
 				C1CD4113147B83EE009C3F2F /* Install 2.image in Resources */,
 				C1CD4114147B83EE009C3F2F /* Printing.image in Resources */,
+				C14B18A1147E0A5F00A11CFF /* AppIcon.icns in Resources */,
+				C14B18A3147E0A5F00A11CFF /* Build String in Resources */,
+				C14B18A4147E0A5F00A11CFF /* dummy.txt in Resources */,
+				C14B18A6147E0A5F00A11CFF /* Info.plist in Resources */,
+				C14B18E5147F36AE00A11CFF /* MacIIx.ROM in Resources */,
+				C1CEFEAE147FA4AC000ECF47 /* MacOS755.dsk in Resources */,
+				C1CEFEB514808C40000ECF47 /* disk1.dsk in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1245,7 +1307,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1CD4093147B4ED5009C3F2F /* ADDRSPAC.c in Sources */,
 				C1CD3E63147A50E7009C3F2F /* CCAction.m in Sources */,
 				C1CD3E66147A50E7009C3F2F /* CCActionCamera.m in Sources */,
 				C1CD3E69147A50E7009C3F2F /* CCActionEase.m in Sources */,
@@ -1340,41 +1401,52 @@
 				C1CD3F8F147A50E9009C3F2F /* FontManager.m in Sources */,
 				C1CD3F92147A50E9009C3F2F /* ZAttributedString.m in Sources */,
 				C1CD3F96147A50E9009C3F2F /* ZFont.m in Sources */,
-				C1CD3F9B147A50E9009C3F2F /* main.m in Sources */,
 				C1CD3F9E147A50E9009C3F2F /* AppDelegate.m in Sources */,
 				C1CD3FA1147A50E9009C3F2F /* RootViewController.m in Sources */,
 				C1CD3FA4147A50E9009C3F2F /* HelloWorldLayer.m in Sources */,
 				C1CD3FEB147A5192009C3F2F /* ExtendedAttributes.m in Sources */,
-				C1CD3FEC147A5192009C3F2F /* glue.m in Sources */,
 				C1CD3FED147A5192009C3F2F /* InsertDiskView.m in Sources */,
 				C1CD3FEE147A5192009C3F2F /* KBKey.m in Sources */,
 				C1CD3FEF147A5192009C3F2F /* KeyboardView.m in Sources */,
+				C1CD3F9B147A50E9009C3F2F /* main.m in Sources */,
 				C1CD3FF0147A5192009C3F2F /* main.m in Sources */,
+				C14B18D3147E74C100A11CFF /* Glue.m in Sources */,
+				C14B18A5147E0A5F00A11CFF /* GLOBGLUE.c in Sources */,
+				C14B18A7147E0A5F00A11CFF /* IWMEMDEV.c in Sources */,
+				C14B18A8147E0A5F00A11CFF /* M68KITAB.c in Sources */,
+				C14B18A9147E0A5F00A11CFF /* MINEM68K.c in Sources */,
+				C14B18B4147E0A5F00A11CFF /* VIAEMDEV.c in Sources */,
+				C14B18B3147E0A5F00A11CFF /* VIA2EMDV.c in Sources */,
+				C14B18AF147E0A5F00A11CFF /* SCCEMDEV.c in Sources */,
+				C14B18AE147E0A5F00A11CFF /* RTCEMDEV.c in Sources */,
+				C14B18B1147E0A5F00A11CFF /* SCSIEMDV.c in Sources */,
+				C14B18B2147E0A5F00A11CFF /* SONYEMDV.c in Sources */,
+				C14B18B5147E0A5F00A11CFF /* VIDEMDEV.c in Sources */,
+				C14B18DA147F312800A11CFF /* ROMEMDEV.c in Sources */,
+				C14B18A0147E0A5F00A11CFF /* ADBEMDEV.c in Sources */,
+				C14B18A2147E0A5F00A11CFF /* ASCEMDEV.c in Sources */,
+				C14B18DB147F318400A11CFF /* SCRNEMDV.c in Sources */,
+				C14B18C6147E157400A11CFF /* MOUSEMDV.c in Sources */,
+				C14B18C9147E2BC900A11CFF /* PROGMAIN.c in Sources */,
+				C14B18BD147E117D00A11CFF /* vMacApp.m in Sources */,
 				C1CD3FF1147A5192009C3F2F /* MainView.m in Sources */,
-				C1CD3FF3147A5192009C3F2F /* GLOBGLUE.c in Sources */,
-				C1CD3FF4147A5192009C3F2F /* IWMEMDEV.c in Sources */,
-				C1CD3FF5147A5192009C3F2F /* KBRDEMDV.c in Sources */,
-				C1CD3FF6147A5192009C3F2F /* MINEM68K.c in Sources */,
-				C1CD3FF7147A5192009C3F2F /* MOUSEMDV.c in Sources */,
-				C1CD3FF9147A5192009C3F2F /* PROGMAIN.c in Sources */,
-				C1CD3FFA147A5192009C3F2F /* ROMEMDEV.c in Sources */,
-				C1CD3FFB147A5192009C3F2F /* RTCEMDEV.c in Sources */,
-				C1CD3FFC147A5192009C3F2F /* SCCEMDEV.c in Sources */,
-				C1CD3FFD147A5192009C3F2F /* SCRNEMDV.c in Sources */,
-				C1CD3FFE147A5192009C3F2F /* SCSIEMDV.c in Sources */,
-				C1CD3FFF147A5192009C3F2F /* SNDEMDEV.c in Sources */,
-				C1CD4000147A5192009C3F2F /* SONYEMDV.c in Sources */,
-				C1CD4001147A5192009C3F2F /* VIAEMDEV.c in Sources */,
 				C1CD4002147A5192009C3F2F /* NewDiskView.m in Sources */,
 				C1CD4003147A5192009C3F2F /* SettingsView.m in Sources */,
 				C1CD4004147A5192009C3F2F /* SurfaceView.m in Sources */,
-				C1CD4005147A5192009C3F2F /* vMacApp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		C14B1878147E0A5F00A11CFF /* dummy.txt */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C14B1879147E0A5F00A11CFF /* English */,
+			);
+			name = dummy.txt;
+			sourceTree = "<group>";
+		};
 		C1CD400B147A51CD009C3F2F /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1469,6 +1541,7 @@
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "D050ECC4-9F0D-4997-86DF-D300191E3286";
+				STRIP_INSTALLED_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1480,6 +1553,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Peter Godwin (7DXXUZD26H)";
 				COPY_PHASE_STRIP = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = minivmac/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
@@ -1488,6 +1562,7 @@
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "D050ECC4-9F0D-4997-86DF-D300191E3286";
+				STRIP_INSTALLED_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

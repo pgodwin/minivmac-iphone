@@ -1,28 +1,29 @@
 /*
-	MYOSGLUE.h
-
-	Copyright (C) 2006 Philip Cummins, Richard F. Bannister, Paul C. Pratt
-
-	You can redistribute this file and/or modify it under the terms
-	of version 2 of the GNU General Public License as published by
-	the Free Software Foundation.  You should have received a copy
-	of the license along with this file; see the file COPYING.
-
-	This file is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	license for more details.
-*/
+ MYOSGLUE.h
+ 
+ Copyright (C) 2006 Philip Cummins, Richard F. Bannister,
+ Paul C. Pratt
+ 
+ You can redistribute this file and/or modify it under the terms
+ of version 2 of the GNU General Public License as published by
+ the Free Software Foundation.  You should have received a copy
+ of the license along with this file; see the file COPYING.
+ 
+ This file is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ license for more details.
+ */
 
 /*
-	MY Operating System GLUE.
-
-	header file for operating system dependent code.
-	the same header is used for all platforms.
-
-	This code is descended from Richard F. Bannister's Macintosh
-	port of vMac, by Philip Cummins.
-*/
+ MY Operating System GLUE.
+ 
+ header file for operating system dependent code.
+ the same header is used for all platforms.
+ 
+ This code is descended from Richard F. Bannister's Macintosh
+ port of vMac, by Philip Cummins.
+ */
 
 #ifdef MYOSGLUE_H
 #ifndef AllFiles
@@ -32,160 +33,114 @@
 #define MYOSGLUE_H
 #endif
 
-#define kEmu128K        0
-#define kEmu512K        1
-#define kEmu512Ke       2
-#define kEmuPlus1M      3
-#define kEmuPlus2M      4
-#define kEmuPlus2_5M    5
-#define kEmuPlus        6
-#define kEmuSE1M        7
-#define kEmuSE2M        8
-#define kEmuSE2_5M      9
-#define kEmuSE          10
-#define kEmuClassic1M   11
-#define kEmuClassic2M   12
-#define kEmuClassic2_5M 13
-#define kEmuClassic     14
 
 EXPORTPROC WarnMsgCorruptedROM(void);
 EXPORTPROC WarnMsgUnsupportedROM(void);
-
-#ifndef DetailedAbormalReport
-#define DetailedAbormalReport 0
-#endif
-
-#if DetailedAbormalReport
-EXPORTPROC WarnMsgAbnormal(char *s);
-#else
 EXPORTPROC WarnMsgAbnormal(void);
+EXPORTFUNC blnr AllocMyMemory(void);
+
+#if dbglog_HAVE
+EXPORTPROC dbglog_writeCStr(char *s);
+EXPORTPROC dbglog_writeReturn(void);
+EXPORTPROC dbglog_writeHex(ui5r x);
+EXPORTPROC dbglog_writeNum(ui5r x);
+EXPORTPROC dbglog_writeln(char *s);
+EXPORTPROC dbglog_writelnNum(char *s, simr v);
 #endif
+
+EXPORTPROC ReserveAllocOneBlock(ui3p *p, uimr n, ui3r align,
+                                blnr FillOnes);
 
 EXPORTPROC MyMoveBytes(anyp srcPtr, anyp destPtr, si5b byteCount);
 
-#ifndef kRAM_Size
-#if CurEmu == kEmu128K
-#define kRAM_Size 0x00020000
-#elif (CurEmu == kEmu512K) || (CurEmu == kEmu512Ke)
-#define kRAM_Size 0x00080000
-#elif (CurEmu == kEmuPlus1M)
-#define kRAM_Size 0x00100000
-#elif (CurEmu == kEmuPlus2M)
-#define kRAM_Size 0x00200000
-#elif (CurEmu == kEmuPlus2_5M)
-#define kRAM_Size 0x00280000
-#elif (CurEmu == kEmuPlus)
-#define kRAM_Size 0x00400000
-#elif (CurEmu == kEmuSE1M)
-#define kRAM_Size 0x00100000
-#elif (CurEmu == kEmuSE2M)
-#define kRAM_Size 0x00200000
-#elif (CurEmu == kEmuSE2_5M)
-#define kRAM_Size 0x00280000
-#elif (CurEmu == kEmuSE)
-#define kRAM_Size 0x00400000
-#elif (CurEmu == kEmuClassic1M)
-#define kRAM_Size 0x00100000
-#elif (CurEmu == kEmuClassic2M)
-#define kRAM_Size 0x00200000
-#elif (CurEmu == kEmuClassic2_5M)
-#define kRAM_Size 0x00280000
-#elif (CurEmu == kEmuClassic)
-#define kRAM_Size 0x00400000
-#else
-#error "kRAM_Size not defined"
-#endif
-#endif
 
-#define RAMSafetyMarginFudge 4
-EXPORTVAR(ui4b, *RAM)
-	/*
-		allocated by MYOSGLUE to be at least kRAM_Size + RAMSafetyMarginFudge
-		bytes. Because of shortcuts taken in ADDRSPAC.c, it is in theory
-		possible for the emulator to write up to 3 bytes past kRAM_Size.
-	*/
+EXPORTVAR(ui3p, ROM)
+//EXPORTVAR(ui3p, *ROM)
 
+/*
+ error codes returned by Mini vMac extensions
+ (passed back to the emulated 68k code).
+ */
 
-#if CurEmu <= kEmu512K
-#define kTrueROM_Size 0x010000 /* ROM size is 64 KB */
-#elif CurEmu <= kEmuPlus
-#define kTrueROM_Size 0x020000 /* ROM size is 128 KB */
-#elif CurEmu <= kEmuSE
-#define kTrueROM_Size 0x040000 /* ROM size is 256 KB */
-#elif CurEmu <= kEmuClassic
-#define kTrueROM_Size 0x080000 /* ROM size is 512 KB */
-#else
-#error "kTrueROM_Size not defined"
-#endif
+#define tMacErr ui4r
 
-#if CurEmu <= kEmu512K
-#define kROM_Size 0x020000 /* ROM size is 128 KB */
-#else
-#define kROM_Size kTrueROM_Size
-#endif
-
-#ifndef TempDebug /* a way to mark temporary debugging code */
-#if (CurEmu >= kEmuSE1M) && (CurEmu <= kEmuClassic)
-#define TempDebug 1 /* flag some stuff that needs look at */
-#else
-#define TempDebug 0
-#endif
-#endif
-
-EXPORTVAR(ui4b, *ROM)
-
-#ifndef IncludePbufs
-#define IncludePbufs 1
-#endif
+#define mnvm_noErr      ((tMacErr) 0x0000)
+/* (ui4b)    0 - No Error */
+#define mnvm_miscErr    ((tMacErr) 0xFFFF)
+/* (ui4b) -  1 - Should probably replace these */
+#define mnvm_controlErr ((tMacErr) 0xFFEF)
+/* (ui4b) - 17 - I/O System Errors */
+#define mnvm_statusErr  ((tMacErr) 0xFFEE)
+/* (ui4b) - 18 - Driver can't respond to Status call */
+#define mnvm_closErr    ((tMacErr) 0xFFE8)
+/* (ui4b) - 24 - I/O System Errors */
+#define mnvm_eofErr     ((tMacErr) 0xFFD9)
+/* (ui4b) - 39 - End of file */
+#define mnvm_tmfoErr    ((tMacErr) 0xFFD6)
+/* (ui4b) - 42 - too many files open */
+#define mnvm_fnfErr     ((tMacErr) 0xFFD5)
+/* (ui4b) - 43 - File not found */
+#define mnvm_wPrErr     ((tMacErr) 0xFFD4)
+/* (ui4b) - 44 - diskette is write protected */
+#define mnvm_vLckdErr   ((tMacErr) 0xFFD2)
+/* (ui4b) - 46 - volume is locked */
+#define mnvm_dupFNErr   ((tMacErr) 0xFFD0)
+/* (ui4b) - 48 - duplicate filename */
+#define mnvm_opWrErr    ((tMacErr) 0xFFCF)
+/* (ui4b) - 49 - file already open with with write permission */
+#define mnvm_paramErr   ((tMacErr) 0xFFCE)
+/* (ui4b) - 50 - error in parameter list */
+#define mnvm_permErr    ((tMacErr) 0xFFCA)
+/* (ui4b) - 54 - permissions error (on file open) */
+#define mnvm_nsDrvErr   ((tMacErr) 0xFFC8)
+/* (ui4b) - 56 - No Such Drive */
+#define mnvm_wrPermErr  ((tMacErr) 0xFFC3)
+/* (ui4b) - 61 - write permissions error */
+#define mnvm_offLinErr  ((tMacErr) 0xFFBF)
+/* (ui4b) - 65 - off-line drive */
+#define mnvm_afpAccessDenied  ((tMacErr) 0xEC78)
+/* (ui4b) - 5000 - Insufficient access privileges for operation */
 
 #if IncludePbufs
 
-#ifndef NumPbufs
-#define NumPbufs 4
-#endif
+#define tPbuf ui4r
 
-#define NotAPbuf ((ui4b)0xFFFF)
+#define NotAPbuf ((tPbuf)0xFFFF)
 
-EXPORTVAR(ui5b, PbufAllocatedMask)
-EXPORTVAR(ui5b, PbufSize[NumPbufs])
-
-#define PbufIsAllocated(i) ((PbufAllocatedMask & ((ui5b)1 << (i))) != 0)
+EXPORTFUNC tMacErr CheckPbuf(tPbuf Pbuf_No);
+EXPORTFUNC tMacErr PbufGetSize(tPbuf Pbuf_No, ui5r *Count);
 
 EXPORTFUNC si4b PbufNew(ui5b count, ui4b *r);
 EXPORTPROC PbufDispose(ui4b i);
 EXPORTPROC PbufTransfer(void *Buffer,
-	ui4b i, ui5b offset, ui5b count, blnr IsWrite);
+                        ui4b i, ui5b offset, ui5b count, blnr IsWrite);
 
 #endif
 
+#define tDrive ui4r
+
 EXPORTVAR(ui5b, vSonyWritableMask)
 EXPORTVAR(ui5b, vSonyInsertedMask)
-EXPORTVAR(ui5b, vSonyMountedMask)
 
-#define vSonyIsInserted(Drive_No) ((vSonyInsertedMask & ((ui5b)1 << (Drive_No))) != 0)
-#define vSonyIsMounted(Drive_No) ((vSonyMountedMask & ((ui5b)1 << (Drive_No))) != 0)
+#define vSonyIsInserted(Drive_No) \
+((vSonyInsertedMask & ((ui5b)1 << (Drive_No))) != 0)
 
+//EXPORTFUNC tMacErr vSonyTransfer(blnr IsWrite, ui3p Buffer,
+//                                 tDrive Drive_No, ui5r Sony_Start, ui5r Sony_Count,
+//                                 ui5r *Sony_ActCount);
+
+EXPORTFUNC blnr AnyDiskInserted(void);
+EXPORTPROC DiskRevokeWritable(tDrive Drive_No);
+
+/*PG*/
 EXPORTFUNC si4b vSonyRead(void *Buffer, ui4b Drive_No, ui5b Sony_Start, ui5b *Sony_Count);
 EXPORTFUNC si4b vSonyWrite(void *Buffer, ui4b Drive_No, ui5b Sony_Start, ui5b *Sony_Count);
 EXPORTFUNC si4b vSonyEject(ui4b Drive_No);
 EXPORTFUNC si4b vSonyGetSize(ui4b Drive_No, ui5b *Sony_Count);
-
-EXPORTFUNC blnr AnyDiskInserted(void);
-
-#ifndef IncludeSonyRawMode
-#define IncludeSonyRawMode 1
-#endif
+/* END PG*/
 
 #if IncludeSonyRawMode
 EXPORTVAR(blnr, vSonyRawMode)
-#endif
-
-#ifndef IncludeSonyGetName
-#define IncludeSonyGetName 1
-#endif
-
-#ifndef IncludeSonyNew
-#define IncludeSonyNew 1
 #endif
 
 #if IncludeSonyNew
@@ -194,30 +149,59 @@ EXPORTVAR(ui5b, vSonyNewDiskSize)
 EXPORTFUNC si4b vSonyEjectDelete(ui4b Drive_No);
 #endif
 
-#ifndef IncludeSonyNameNew
-#define IncludeSonyNameNew 1
-#endif
-
 #if IncludeSonyNameNew
+//EXPORTFUNC si4b vSonyGetName(ui4b Drive_No, ui4b *r);
 EXPORTVAR(ui4b, vSonyNewDiskName)
 #endif
 
 #if IncludeSonyGetName
+//EXPORTFUNC tMacErr vSonyGetName(tDrive Drive_No, tPbuf *r);
 EXPORTFUNC si4b vSonyGetName(ui4b Drive_No, ui4b *r);
+#endif
+
+#if IncludeHostTextClipExchange
+//EXPORTFUNC tMacErr HTCEexport(tPbuf i);
+//XPORTFUNC tMacErr HTCEimport(tPbuf *r);
 #endif
 
 EXPORTVAR(ui5b, CurMacDateInSeconds)
 EXPORTVAR(ui5b, CurMacLatitude)
 EXPORTVAR(ui5b, CurMacLongitude)
-EXPORTVAR(ui5b, CurMacDelta) /* (dlsDelta << 24) | (gmtDelta & 0x00FFFFFF) */
+EXPORTVAR(ui5b, CurMacDelta)
+/* (dlsDelta << 24) | (gmtDelta & 0x00FFFFFF) */
 
-#define vMacScreenHeight 342
-#define vMacScreenWidth 512
-#define vMacScreenNumBits ((long)vMacScreenHeight * (long)vMacScreenWidth)
-#define vMacScreenNumBytes (vMacScreenNumBits / 8)
-#define vMacScreenByteWidth (vMacScreenWidth / 8)
+EXPORTVAR(ui3p, ScalingBuff)
 
-EXPORTVAR(char, *screencomparebuff)
+#if 0 != vMacScreenDepth
+EXPORTVAR(blnr, UseColorMode)
+#endif
+
+
+#if 0 != vMacScreenDepth
+EXPORTVAR(blnr, ColorMappingChanged)
+#endif
+
+#if (0 != vMacScreenDepth) && (vMacScreenDepth < 4)
+#define CLUT_size (1 << (1 << vMacScreenDepth))
+
+EXPORTVAR(ui4r, CLUT_reds[CLUT_size])
+EXPORTVAR(ui4r, CLUT_greens[CLUT_size])
+EXPORTVAR(ui4r, CLUT_blues[CLUT_size])
+#endif
+
+/*PG*/
+EXPORTVAR(ui3p, screencomparebuff)
+
+//GLOBALVAR ui3p RAM = nullpr;
+
+//EXPORTVAR(ui3p, *ROM)
+
+//EXPORTVAR(ui3p, RAM)
+
+
+EXPORTPROC Screen_OutputFrame(ui3p screencurrentbuff);
+
+
 
 EXPORTVAR(blnr, ForceMacOff)
 
@@ -227,52 +211,103 @@ EXPORTVAR(blnr, WantMacReset)
 
 EXPORTFUNC blnr ExtraTimeNotOver(void);
 
-EXPORTFUNC char * GetCurDrawBuff(void);
-
-EXPORTVAR(blnr, SpeedLimit)
-
 EXPORTVAR(ui3b, SpeedValue)
 
+/*PG*/
 EXPORTVAR(ui3b, CurMouseButton)
-
 EXPORTVAR(ui4b, CurMouseV)
 EXPORTVAR(ui4b, CurMouseH)
+EXPORTVAR(blnr, HaveMouseMotion);
 
 #ifndef EnableMouseMotion
 #define EnableMouseMotion 1
 #endif
 
 #if EnableMouseMotion
-EXPORTVAR(blnr, HaveMouseMotion)
+
 EXPORTVAR(ui4b, MouseMotionV)
 EXPORTVAR(ui4b, MouseMotionH)
 #endif
 
-#ifndef MySoundEnabled
-#define MySoundEnabled 0
+
+/*END PG*/
+
+
+
+#if EnableAutoSlow
+EXPORTVAR(blnr, WantNotAutoSlow)
+#endif
+
+/* where emulated machine thinks mouse is */
+EXPORTVAR(ui4b, CurMouseV)
+EXPORTVAR(ui4b, CurMouseH)
+
+#if EnableAutoSlow
+EXPORTVAR(ui5r, QuietTime)
+EXPORTVAR(ui5r, QuietSubTicks)
+
+#define QuietEnds() \
+{ \
+QuietTime = 0; \
+QuietSubTicks = 0; \
+}
+#else
+#define QuietEnds()
+#endif
+
+#if 3 == kLn2SoundSampSz
+#define trSoundSamp ui3r
+#define tbSoundSamp ui3b
+#define tpSoundSamp ui3p
+#define kCenterSound 0x80
+#elif 4 == kLn2SoundSampSz
+#define trSoundSamp ui4r
+#define tbSoundSamp ui4b
+#define tpSoundSamp ui4p
+#define kCenterSound 0x8000
+#else
+#error "unsupported kLn2SoundSampSz"
 #endif
 
 #if MySoundEnabled
-EXPORTFUNC ui3p GetCurSoundOutBuff(void);
 
+//EXPORTFUNC tpSoundSamp MySound_BeginWrite(ui4r n, ui4r *actL);
+//EXPORTPROC MySound_EndWrite(ui4r actL);
+
+/* PG */
 /* Length of the audio buffer */
 #define SOUND_LEN 370
+
+
+/* 370 samples per tick = 22,254.54 per second */
 #endif
 
-#ifndef IncludeHostTextClipExchange
-#define IncludeHostTextClipExchange 1
-#endif
+#define MyEvtQElKindKey 0
+#define MyEvtQElKindMouseButton 1
+#define MyEvtQElKindMousePos 2
+#define MyEvtQElKindMouseDelta 3
 
-#if IncludeHostTextClipExchange
-EXPORTFUNC si4b HTCEexport(ui4b i);
-EXPORTFUNC si4b HTCEimport(ui4b *r);
-#endif
+struct MyEvtQEl {
+	/* expected size : 8 bytes */
+	ui3b kind;
+	ui3b pad[3];
+	union {
+		struct {
+			ui3b down;
+			ui3b key;
+		} press;
+		struct {
+			ui4b h;
+			ui4b v;
+		} pos;
+	} u;
+};
+typedef struct MyEvtQEl MyEvtQEl;
+
+EXPORTFUNC MyEvtQEl * MyEvtQOutP(void);
+EXPORTPROC MyEvtQOutDone(void);
 
 EXPORTVAR(ui5b, theKeys[4])
-	/*
-		What the emulated keyboard thinks is the
-		state of the keyboard.
-	*/
 
 #define MKC_A 0x00
 #define MKC_B 0x0B
@@ -384,3 +419,157 @@ EXPORTVAR(ui5b, theKeys[4])
 #define MKC_Print 0x69
 #define MKC_ScrollLock 0x6B
 #define MKC_Pause 0x71
+
+
+#define kEmu128K        0
+#define kEmu512K        1
+#define kEmu512Ke       2
+#define kEmuPlus1M      3
+#define kEmuPlus2M      4
+#define kEmuPlus2_5M    5
+#define kEmuPlus        6
+#define kEmuSE1M        7
+#define kEmuSE2M        8
+#define kEmuSE2_5M      9
+#define kEmuSE          10
+#define kEmuClassic1M   11
+#define kEmuClassic2M   12
+#define kEmuClassic2_5M 13
+#define kEmuClassic     14
+
+EXPORTPROC WarnMsgCorruptedROM(void);
+EXPORTPROC WarnMsgUnsupportedROM(void);
+
+#ifndef DetailedAbormalReport
+#define DetailedAbormalReport 0
+#endif
+
+#if DetailedAbormalReport
+EXPORTPROC WarnMsgAbnormal(char *s);
+#else
+EXPORTPROC WarnMsgAbnormal(void);
+#endif
+
+EXPORTPROC MyMoveBytes(anyp srcPtr, anyp destPtr, si5b byteCount);
+
+/*
+ allocated by MYOSGLUE to be at least kRAM_Size + RAMSafetyMarginFudge
+ bytes. Because of shortcuts taken in ADDRSPAC.c, it is in theory
+ possible for the emulator to write up to 3 bytes past kRAM_Size.
+ */
+
+
+
+
+
+#ifndef IncludePbufs
+#define IncludePbufs 1
+#endif
+
+#if IncludePbufs
+
+#ifndef NumPbufs
+#define NumPbufs 4
+#endif
+
+
+//EXPORTVAR(ui5b, PbufAllocatedMask)
+//EXPORTVAR(ui5b, PbufSize[NumPbufs])
+
+#define PbufIsAllocated(i) ((PbufAllocatedMask & ((ui5b)1 << (i))) != 0)
+
+EXPORTFUNC si4b PbufNew(ui5b count, ui4b *r);
+EXPORTPROC PbufDispose(ui4b i);
+EXPORTPROC PbufTransfer(void *Buffer,
+                        ui4b i, ui5b offset, ui5b count, blnr IsWrite);
+
+#endif
+
+EXPORTVAR(ui5b, vSonyWritableMask)
+EXPORTVAR(ui5b, vSonyInsertedMask)
+EXPORTVAR(ui5b, vSonyMountedMask)
+
+#define vSonyIsInserted(Drive_No) ((vSonyInsertedMask & ((ui5b)1 << (Drive_No))) != 0)
+#define vSonyIsMounted(Drive_No) ((vSonyMountedMask & ((ui5b)1 << (Drive_No))) != 0)
+
+EXPORTFUNC si4b vSonyRead(void *Buffer, ui4b Drive_No, ui5b Sony_Start, ui5b *Sony_Count);
+EXPORTFUNC si4b vSonyWrite(void *Buffer, ui4b Drive_No, ui5b Sony_Start, ui5b *Sony_Count);
+EXPORTFUNC si4b vSonyEject(ui4b Drive_No);
+EXPORTFUNC si4b vSonyGetSize(ui4b Drive_No, ui5b *Sony_Count);
+
+EXPORTFUNC blnr AnyDiskInserted(void);
+
+#ifndef IncludeSonyRawMode
+#define IncludeSonyRawMode 1
+#endif
+
+#if IncludeSonyRawMode
+EXPORTVAR(blnr, vSonyRawMode)
+#endif
+
+#ifndef IncludeSonyGetName
+#define IncludeSonyGetName 1
+#endif
+
+#ifndef IncludeSonyNew
+#define IncludeSonyNew 1
+#endif
+
+#if IncludeSonyNew
+EXPORTVAR(blnr, vSonyNewDiskWanted)
+EXPORTVAR(ui5b, vSonyNewDiskSize)
+EXPORTFUNC si4b vSonyEjectDelete(ui4b Drive_No);
+#endif
+
+#ifndef IncludeSonyNameNew
+#define IncludeSonyNameNew 1
+#endif
+
+#if IncludeSonyNameNew
+EXPORTVAR(ui4b, vSonyNewDiskName)
+#endif
+
+#if IncludeSonyGetName
+EXPORTFUNC si4b vSonyGetName(ui4b Drive_No, ui4b *r);
+#endif
+
+EXPORTVAR(ui5b, CurMacDateInSeconds)
+EXPORTVAR(ui5b, CurMacLatitude)
+EXPORTVAR(ui5b, CurMacLongitude)
+EXPORTVAR(ui5b, CurMacDelta) /* (dlsDelta << 24) | (gmtDelta & 0x00FFFFFF) */
+
+
+EXPORTVAR(blnr, ForceMacOff)
+
+EXPORTVAR(blnr, WantMacInterrupt)
+
+EXPORTVAR(blnr, WantMacReset)
+
+EXPORTFUNC blnr ExtraTimeNotOver(void);
+
+//EXPORTFUNC ui3p GetCurDrawBuff(void);
+
+EXPORTVAR(blnr, SpeedLimit)
+
+#ifndef EnableMouseMotion
+#define EnableMouseMotion 1
+#endif
+
+
+#ifndef MySoundEnabled
+#define MySoundEnabled 0
+#endif
+
+#if MySoundEnabled
+EXPORTFUNC ui3p GetCurSoundOutBuff(void);
+
+/* Length of the audio buffer */
+#define SOUND_LEN 370
+#endif
+
+#ifndef IncludeHostTextClipExchange
+#define IncludeHostTextClipExchange 1
+#endif
+
+
+
