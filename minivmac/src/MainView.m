@@ -102,8 +102,13 @@
         Direction scrollTo = 0;
         if (tapLoc.x < kScreenEdgeSize && screenLoc.x != 0.0) scrollTo |= dirLeft;
         if (tapLoc.y < kScreenEdgeSize && screenLoc.y != 0.0) scrollTo |= dirUp;
+#ifdef IPAD
+        if (tapLoc.x > (1024-kScreenEdgeSize) && screenLoc.x == 0.0) scrollTo |= dirRight;
+        if (tapLoc.y > (768-kScreenEdgeSize) && screenLoc.y == 0.0) scrollTo |= dirDown;
+#else
         if (tapLoc.x > (480-kScreenEdgeSize) && screenLoc.x == 0.0) scrollTo |= dirRight;
         if (tapLoc.y > (320-kScreenEdgeSize) && screenLoc.y == 0.0) scrollTo |= dirDown;
+#endif
         if (scrollTo) {
             [self scrollScreenViewTo:scrollTo];
             return;
@@ -226,8 +231,13 @@
         pt.v = point.y;
     } else if (screenSizeToFit) {
         // scale
+#ifdef IPAD
+        pt.h = point.x * (vMacScreenWidth / 1024.0);
+        pt.v = point.y * (vMacScreenHeight / 768.0);
+#else
         pt.h = point.x * (vMacScreenWidth / 480.0);
-        pt.v = point.y * (vMacScreenHeight / 320.0);
+        pt.v = point.y * (vMacScreenHeight / 320.0); 
+#endif
     } else {
         // translate
         pt.h = point.x - mouseOffset.h;
@@ -284,10 +294,18 @@
     if (screenSizeToFit) return;
     // calculate new position
     CGRect screenFrame = screenView.frame;
+#ifdef IPAD
+    if (scroll & dirDown) screenFrame.origin.y = 768.0-vMacScreenHeight;
+#else
     if (scroll & dirDown) screenFrame.origin.y = ([[vMacApp sharedInstance] isRetinaDisplay]?320.5:320.0)-vMacScreenHeight;
+#endif
     else if (scroll & dirUp) screenFrame.origin.y = 0.0;
     if (scroll & dirLeft) screenFrame.origin.x = 0.0;
+#ifdef IPAD    
+    else if (scroll & dirRight) screenFrame.origin.x = 1024.0-vMacScreenWidth;
+#else
     else if (scroll & dirRight) screenFrame.origin.x = 480.0-vMacScreenWidth;
+#endif
     if (scroll != screenPosition) {
         screenPosition = scroll;
         NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];

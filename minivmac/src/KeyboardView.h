@@ -4,10 +4,22 @@
 #import "SYSDEPNS.h"
 #import "MYOSGLUE.h"
 
+#ifndef UI_USER_INTERFACE_IDIOM
+//#define IPAD NO
+#define OS32PLUS NO
+#else
+#define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define OS32PLUS YES
+#endif
+
 #define KeyboardViewAnimationDuration   0.3
+#ifdef IPAD
+#define KeyboardViewFrameVisible        CGRectMake((1024/2)-240, 768-162.0, 480.0, 162.0)
+#define KeyboardViewFrameHidden         CGRectMake((1024/2)-240, 768.0, 480.0, 162.0)
+#else
 #define KeyboardViewFrameVisible        CGRectMake(0.0, 320.0-162.0, 480.0, 162.0)
 #define KeyboardViewFrameHidden         CGRectMake(0.0, 320.0, 480.0, 162.0)
-
+#endif
 @protocol VirtualKeyboard
 - (void)vKeyDown:(int)scancode;
 - (void)vKeyUp:(int)scancode;

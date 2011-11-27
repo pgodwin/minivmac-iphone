@@ -4,8 +4,13 @@
 #import "NewDiskView.h"
 
 #define InsertDiskViewAnimationDuration     0.3
+#ifdef IPAD
+#define InsertDiskViewFrameHidden           CGRectMake(1024.0, 0.0, 240.0, 768.0)
+#define InsertDiskViewFrameVisible          CGRectMake(1024.0-240.0, 0.0, 240.0, 768.0)
+#else
 #define InsertDiskViewFrameHidden           CGRectMake(480.0, 0.0, 240.0, 320.0)
 #define InsertDiskViewFrameVisible          CGRectMake(240.0, 0.0, 240.0, 320.0)
+#endif
 
 @interface InsertDiskView : UIView {
     id <VirtualDiskDrive>   diskDrive;

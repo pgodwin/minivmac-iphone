@@ -16,6 +16,9 @@
 #define kMacEpoch 2082844800
 #define MyTickDuration (1/60.14742)
 
+
+#define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
 #define PointDistanceSq(a, b) ((((int)a.h-(int)b.h)*((int)a.h-(int)b.h)) + (((int)a.v-(int)b.v)*((int)a.v-(int)b.v)))
 #define CGPointCenter(a, b) CGPointMake((a.x+b.x)/2, (a.y+b.y)/2)
 #define MOUSE_DBLCLICK_TIME     0.55    // seconds, NSTimeInterval
@@ -28,9 +31,18 @@
 #define TRACKPAD_ACCEL_D        20
 #define MOUSE_LOC_THRESHOLD     500     // pixel distance in mac screen, squared, integer
 #define kScreenEdgeSize         20      // edge size for scrolling
-#define kScreenRectFullScreen   CGRectMake(0.f, 0.f, 480.f, 320.f)
-#define kScreenRectRealSize     CGRectMake(0.f, 0.f, vMacScreenWidth, vMacScreenHeight)
 
+#if UI_USER_INTERFACE_IDIOM == UIUserInterfaceIdiomPad
+#define kScreenRectFullScreen   CGRectMake(0.f, 0.f, 1024.f, 768.f)
+#else
+#define kScreenRectFullScreen   CGRectMake(0.f, 0.f, 480.f, 320.f)
+#endif
+
+#if UI_USER_INTERFACE_IDIOM == UIUserInterfaceIdiomPad
+#define kScreenRectRealSize     CGRectMake((1024/2)-vMacScreenWidth, (768/2)-vMacScreenHeight, vMacScreenWidth, vMacScreenHeight)
+#else
+#define kScreenRectRealSize     CGRectMake(0.f, 0.f, vMacScreenWidth, vMacScreenHeight)
+#endif
 #undef ABS
 #define ABS(x) (((x)>0)? (x) : -(x))
 

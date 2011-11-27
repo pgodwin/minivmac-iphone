@@ -2,9 +2,13 @@
 #import <UIKit/UISwitch.h>
 
 #define SettingsViewAnimationDuration     0.3
+#ifdef IPAD
+#define SettingsViewFrameHidden           CGRectMake(-240.0, 0.0, 240.0, 768.0)
+#define SettingsViewFrameVisible          CGRectMake(0.0, 0.0, 240.0, 768.0)
+#else
 #define SettingsViewFrameHidden           CGRectMake(-240.0, 0.0, 240.0, 320.0)
 #define SettingsViewFrameVisible          CGRectMake(0.0, 0.0, 240.0, 320.0)
-
+#endif
 typedef enum {
     settingsGroupMouse,
     settingsGroupSound,

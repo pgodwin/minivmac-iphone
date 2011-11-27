@@ -212,7 +212,10 @@ IMPORTFUNC ui3p GetCurDrawBuff(void);
 
 GLOBALVAR ui3p ScalingBuff = nullpr;
 
-GLOBALPROC UpdateLuminanceCopy(si4b top, si4b left,
+
+
+
+GLOBALPROC UpdateLuminanceCopy(ui3p* destination, si4b top, si4b left,
                               si4b bottom, si4b right)
 {
 	int i;
@@ -229,7 +232,7 @@ GLOBALPROC UpdateLuminanceCopy(si4b top, si4b left,
 #endif
 		ui3b *p1 = GetCurDrawBuff()
         + (ui5r)vMacScreenByteWidth * top;
-		ui5b *p2 = (ui5b *)ScalingBuff
+		ui5b *p2 = (ui5b *)destination
         + (ui5r)vMacScreenWidth * top;
         
 #if vMacScreenDepth < 4
@@ -290,7 +293,7 @@ GLOBALPROC UpdateLuminanceCopy(si4b top, si4b left,
 		int k;
 		ui3b *p1 = GetCurDrawBuff()
         + (ui5r)vMacScreenMonoByteWidth * top;
-		ui3b *p2 = ScalingBuff + (ui5r)vMacScreenWidth * top;
+		ui3b *p2 = destination + (ui5r)vMacScreenWidth * top;
         
 		for (i = bottom - top; --i >= 0; ) {
 			for (j = vMacScreenMonoByteWidth; --j >= 0; ) {
@@ -315,11 +318,11 @@ GLOBALPROC ReserveAllocAll(void)
                          vMacScreenNumBytes, 5, trueblnr);
 	//ReserveAllocOneBlock(&CntrlDisplayBuff,
     //                     vMacScreenNumBytes, 5, falseblnr);
-	ReserveAllocOneBlock(&ScalingBuff, vMacScreenNumPixels
-#if 0 != vMacScreenDepth
-                         * 4
-#endif
-                         , 5, falseblnr);
+//	ReserveAllocOneBlock(&ScalingBuff, vMacScreenNumPixels
+//#if 0 != vMacScreenDepth
+//                         * 4
+//#endif
+//                         , 5, falseblnr);
 #if MySoundEnabled
 	ReserveAllocOneBlock((ui3p *)&TheSoundBuffer,
                          dbhBufferSize, 5, falseblnr);

@@ -93,38 +93,25 @@ LOCALPROC PStrFromChar(ps3p r, char x)
 }
 
 
-void updateScreen (si3b TimeAdjust)
+void updateScreen (ui4r top, ui4r left, ui4r bottom, ui4r right)
 {
-    si4b top, left, bottom, right;
-    
-    // has the screen changed?
-    
-    //screencomparebuff = GetCurDrawBuff();
-    //GetCurDrawBuff();
-    // convert the pixels
-    //useColorMode = UseColorMode;
-
-    //[_gScreenView useColorMode:false];
-
-	//MyMoveBytes((anyp) ScalingBuff, (anyp)SurfaceScrnBuf, vMacScreenNumBytes);
-//    MyMoveBytes((anyp) ScalingBuff, (anyp)SurfaceScrnBuf, vMacScreenNumBytes);
-    
-    
-        
-    UpdateLuminanceCopy(0, 0, vMacScreenHeight, vMacScreenWidth);
-    
-    //if (!ScreenFindChanges(ScalingBuff, TimeAdjust, &top, &left, &bottom, &right)) return;
-    
-    MyMoveBytes((anyp) ScalingBuff, (anyp)SurfaceScrnBuf, 
-                vMacScreenNumPixels
-        #if 0 != vMacScreenDepth
-                * 4
-        #endif
-                );
+    // Update the surface data straight from UpdateLuminaceCopy (cut down on memcpys)
+    UpdateLuminanceCopy((anyp*)SurfaceScrnBuf, top, left, bottom, right);
     
     objc_msgSend(_gScreenView, _updateColorMode, UseColorMode);
+
+    // look at sending a rect - there is likely to be screen corruption under certain scenarios.
     objc_msgSend(_gScreenView, @selector(setNeedsDisplay));
     
+}
+
+GLOBALPROC MyDrawChangesAndClear(void)
+{
+	if (ScreenChangedBottom > ScreenChangedTop) {
+		updateScreen(ScreenChangedTop, ScreenChangedLeft,
+                         ScreenChangedBottom, ScreenChangedRight);
+		ScreenClearChanges();
+	}
 }
 
 
@@ -365,15 +352,11 @@ LOCALPROC RunEmulatedTicksToTrueTime(void)
         
 #if EnableMouseMotion && MayFullScreen
 		if (HaveMouseMotion) {
-			AutoScrollScreen();
+			//AutoScrollScreen();
 		}
 #endif
         
-        if (ScreenChangedBottom > ScreenChangedTop) {
-//            MyDrawWithOpenGL(ScreenChangedTop, ScreenChangedLeft,
-//                             ScreenChangedBottom, ScreenChangedRight);
-            updateScreen(n);
-        }
+        MyDrawChangesAndClear();
                 
 		if (ExtraTimeNotOver() && (--n > 0)) {
 			/* lagging, catch up */

@@ -57,12 +57,26 @@ IMPORTPROC MyMouseButtonSet(blnr down);
     [self initPreferences];
     
     // create window
-    window = [[UIWindow alloc] initWithFrame: CGRectMake(0,0,480,320)];
+    CGRect windowFrame;
+#ifdef IPAD
+    windowFrame = CGRectMake(0,0,1024,768);
+#else
+    windowFrame = CGRectMake(0,0,480,320);
+#endif
+    window = [[UIWindow alloc] initWithFrame: windowFrame];
+    
+#ifdef IPAD
+    [window setTransform:CGAffineTransformMake(0, 1, -1, 0, -120, 120)];
+#else
     [window setTransform:CGAffineTransformMake(0, 1, -1, 0, -80, 80)];
-    mainView = [[MainView alloc] initWithFrame: CGRectMake(0,0,480,320)];
+#endif
+    mainView = [[MainView alloc] initWithFrame: windowFrame];
     [window setContentView:mainView];
     [window orderFront:self];
     [window makeKey:self];
+    
+    // check for iPad
+    
     
     // check for retina display
     if ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] &&
