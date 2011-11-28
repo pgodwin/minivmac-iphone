@@ -543,7 +543,7 @@ Label_2:
 	*left = j0h;
 	*bottom = j1v;
 	*right = j1h;
-
+    
 	return trueblnr;
 }
 
@@ -574,6 +574,8 @@ LOCALPROC ScreenChangedAll(void)
 #if EnableAutoSlow
 LOCALVAR si4b ScreenChangedQuietTop = vMacScreenHeight;
 LOCALVAR si4b ScreenChangedQuietLeft = vMacScreenWidth;
+
+
 LOCALVAR si4b ScreenChangedQuietBottom = 0;
 LOCALVAR si4b ScreenChangedQuietRight = 0;
 #endif

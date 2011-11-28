@@ -130,15 +130,23 @@ GLOBALPROC MyDrawChangesAndClear(void)
 #define My_Sound_Len (1UL << kLn2BuffLen)
 #define kBufferSize (1UL << kLnBuffSz)
 #define kBufferMask (kBufferSize - 1)
-#define dbhBufferSize (kBufferSize + SOUND_LEN)
-#define DesiredMinFilledSoundBuffs 4
+//#define dbhBufferSize (kBufferSize + SOUND_LEN)
+//#define DesiredMinFilledSoundBuffs 4
 
 static int curFillBuffer = 0;
 static int curReadBuffer = 0;
 static int numFullBuffers = 0;
 static char sndBuffer[kSoundBuffers][SOUND_LEN];
 
-#define FillWithSilence(p,n,v) for (int fws_i = n; --fws_i >= 0;) *p++ = v
+//#define FillWithSilence(p,n,v) for (int fws_i = n; --fws_i >= 0;) *p++ = v
+LOCALPROC FillWithSilence(ui3p p, int n, ui3b v)
+{
+	int i;
+    
+	for (i = n; --i >= 0; ) {
+		*p++ = v;
+	}
+}
 
 struct {
     bool                          mIsInitialized;
@@ -151,24 +159,76 @@ struct {
 LOCALPROC MySound_SecondNotify(void)
 {
     if (!aq.mIsRunning) return;
-    if (numFullBuffers > DesiredMinFilledSoundBuffs) {
+    if (MinFilledSoundBuffs > DesiredMinFilledSoundBuffs) {
         ++CurEmulatedTime;
-    } else if (numFullBuffers < DesiredMinFilledSoundBuffs) {
+    } else if (MinFilledSoundBuffs < DesiredMinFilledSoundBuffs) {
         --CurEmulatedTime;
     }
+    MinFilledSoundBuffs = kSoundBuffers;
 }
 
+LOCALPROC MySound_Start0(void)
+{
+	ThePlayOffset = 0;
+	TheFillOffset = 0;
+	TheWriteOffset = 0;
+	MinFilledSoundBuffs = kSoundBuffers;
+#if dbglog_SoundBuffStats
+	MaxFilledSoundBuffs = 0;
+#endif
+	wantplaying = falseblnr;
+    
+#if MySoundRecenterSilence
+	LastModSample = kCenterSound;
+	SilentBlockCounter = SilentBlockThreshold;
+#endif
+}
+
+
 void MySound_Callback (void *data, AudioQueueRef mQueue, AudioQueueBufferRef mBuffer) {
-    mBuffer->mAudioDataByteSize = SOUND_LEN;
-    char *mAudioData = mBuffer->mAudioData;
-    if (numFullBuffers == 0) {
-        FillWithSilence(mAudioData, SOUND_LEN, 0x80);
+    
+    ui3p NextPlayPtr;
+    ui4b PlayNowSize = 0;
+    ui4b MaskedFillOffset = ThePlayOffset & kOneBuffMask;
+ 
+    if (MaskedFillOffset != 0) {
+        /* take care of left overs */
+        PlayNowSize = kOneBuffLen - MaskedFillOffset;
+        NextPlayPtr =
+            TheSoundBuffer + (ThePlayOffset & kAllBuffMask);
+    } else if (0 !=
+               ((TheFillOffset - ThePlayOffset) >> kLnOneBuffLen))
+    {
+        PlayNowSize = kOneBuffLen;
+        NextPlayPtr =
+            TheSoundBuffer + (ThePlayOffset & kAllBuffMask);
     } else {
-        memcpy(mAudioData, sndBuffer[curReadBuffer], SOUND_LEN);
-        numFullBuffers--;
-        curReadBuffer = (curReadBuffer+1) & kSoundBuffMask;
+        if (numFullBuffers) {
+            /* low on sound to play. play a bit of silence */
+            ThePlayOffset -= kOneBuffLen;
+            NextPlayPtr =
+                TheSoundBuffer + (ThePlayOffset & kAllBuffMask);
+            PlayNowSize = kOneBuffLen;
+            FillWithSilence(NextPlayPtr, kOneBuffLen,
+                            /* 0x80 */
+                            *((ui3p)NextPlayPtr + kOneBuffLen - 1));
+            /* fprintf(stderr, "need silence\n"); */
+        }
+
     }
+
+    if (0 != PlayNowSize) {
+    mBuffer->mAudioDataByteSize = PlayNowSize;
+    char *mAudioData = mBuffer->mAudioData;
+    //if (numFullBuffers == 0) {
+    //    FillWithSilence(mAudioData, SOUND_LEN, 0x80);
+    //} else {
+    memcpy(mAudioData, NextPlayPtr, SOUND_LEN);
+//    numFullBuffers--;
+//    curReadBuffer = (curReadBuffer+1) & kSoundBuffMask;
+    //}
     AudioQueueEnqueueBuffer(mQueue, mBuffer, 0, NULL);
+    }
 }
 
 bool MySound_Init(void) {
@@ -186,7 +246,7 @@ bool MySound_Init(void) {
     aq.mDataFormat.mBitsPerChannel = 8;
     aq.mDataFormat.mReserved = 0;
     err = AudioQueueNewOutput(&aq.mDataFormat, MySound_Callback, NULL, CFRunLoopGetMain(), kCFRunLoopCommonModes, 0, &aq.mQueue);
-    if (err != noErr) NSLog(@"Error %d creating audio queue", err);
+    if (err != noErr) NSLog(@"Error %ld creating audio queue", err);
     
     // create buffers
     for (int i=0; i<kSoundBuffers; i++) {
@@ -200,23 +260,67 @@ bool MySound_Init(void) {
 
 GLOBALPROC MySound_Start (void) {
     if (!aq.mIsInitialized || aq.mIsRunning) return;
+    MySound_Start0();
     AudioQueueStart(aq.mQueue, NULL);
     aq.mIsRunning = true;
+    
 }
 
 GLOBALPROC MySound_Stop (void) {
+    wantplaying = falseblnr;
     if (!aq.mIsRunning || !aq.mIsInitialized) return;
     AudioQueueStop(aq.mQueue, false);
     aq.mIsRunning = false;
 }
 
-GLOBALFUNC ui3p GetCurSoundOutBuff(void) {
-    if (!aq.mIsRunning) return nullpr;
-    if (numFullBuffers == kSoundBuffers) return nullpr;
+GLOBALPROC MySound_BeginPlaying(void)
+{
+    MySound_Start();
+	
+}
+
+GLOBALFUNC tpSoundSamp MySound_BeginWrite(ui4r n, ui4r *actL)
+{
+	ui4b ToFillLen = kAllBuffLen - (TheWriteOffset - ThePlayOffset);
+	ui4b WriteBuffContig =
+    kOneBuffLen - (TheWriteOffset & kOneBuffMask);
+    
+	if (WriteBuffContig < n) {
+		n = WriteBuffContig;
+	}
+	if (ToFillLen < n) {
+		/* overwrite previous buffer */
+		TheWriteOffset -= kOneBuffLen;
+	}
+	*actL = n;
+    
     curFillBuffer = (curFillBuffer+1) & kSoundBuffMask;
     numFullBuffers ++;
-    return sndBuffer[curFillBuffer];
+    
+	return TheSoundBuffer + (TheWriteOffset & kAllBuffMask);
 }
+
+GLOBALPROC MySound_EndWrite(ui4r actL)
+{
+	TheWriteOffset += actL;
+    
+	if (0 == (TheWriteOffset & kOneBuffMask)) {
+		/* just finished a block */
+        
+		MySound_WroteABlock();
+	}
+    
+    numFullBuffers = 0;
+}
+
+
+//GLOBALFUNC ui3p GetCurSoundOutBuff(void) {
+//    if (!aq.mIsRunning) return nullpr;
+//    if (numFullBuffers == kSoundBuffers) return nullpr;
+//    curFillBuffer = (curFillBuffer+1) & kSoundBuffMask;
+//    numFullBuffers ++;
+//    return TheSoundBuffer[curFillBuffer];
+//}
 #else
 
 GLOBALFUNC ui3p GetCurSoundOutBuff(void) {
@@ -310,30 +414,6 @@ GLOBALFUNC blnr ExtraTimeNotOver(void)
 
 LOCALPROC RunEmulatedTicksToTrueTime(void)
 {
-//    si3b n;
-//    SpeedLimit = falseblnr;
-//    if (CheckDateTime()) {
-//#if MySoundEnabled
-//        MySound_SecondNotify();
-//#endif
-//    }
-//    
-//    n = OnTrueTime - CurEmulatedTime;
-//    if (n > 0) {
-//        if (n > 8) {
-//            /* emulation not fast enough */
-//            n = 8;
-//            CurEmulatedTime = OnTrueTime - n;
-//        }
-//        
-//        do {
-//            DoEmulateOneTick();
-//            ++CurEmulatedTime;
-//        } while (ExtraTimeNotOver() && (--n > 0));
-//        
-//        updateScreen(n);
-//    }
-    
 	si3b n = OnTrueTime - CurEmulatedTime;
     
 	if (n > 0) {

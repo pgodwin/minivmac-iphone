@@ -271,8 +271,8 @@ QuietSubTicks = 0; \
 
 #if MySoundEnabled
 
-//EXPORTFUNC tpSoundSamp MySound_BeginWrite(ui4r n, ui4r *actL);
-//EXPORTPROC MySound_EndWrite(ui4r actL);
+EXPORTFUNC tpSoundSamp MySound_BeginWrite(ui4r n, ui4r *actL);
+EXPORTPROC MySound_EndWrite(ui4r actL);
 
 /* PG */
 /* Length of the audio buffer */

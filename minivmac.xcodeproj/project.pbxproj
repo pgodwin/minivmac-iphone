@@ -30,12 +30,8 @@
 		C14B18D3147E74C100A11CFF /* Glue.m in Sources */ = {isa = PBXBuildFile; fileRef = C14B18D2147E74BD00A11CFF /* Glue.m */; };
 		C14B18DA147F312800A11CFF /* ROMEMDEV.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B188C147E0A5F00A11CFF /* ROMEMDEV.c */; };
 		C14B18DB147F318400A11CFF /* SCRNEMDV.c in Sources */ = {isa = PBXBuildFile; fileRef = C14B1892147E0A5F00A11CFF /* SCRNEMDV.c */; };
-		C14B18E5147F36AE00A11CFF /* MacIIx.ROM in Resources */ = {isa = PBXBuildFile; fileRef = C14B18E0147F36AE00A11CFF /* MacIIx.ROM */; };
 		C1CD3E3B147A50E7009C3F2F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD3E3A147A50E7009C3F2F /* QuartzCore.framework */; };
-		C1CD3E3D147A50E7009C3F2F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD3E3C147A50E7009C3F2F /* OpenGLES.framework */; };
-		C1CD3E3F147A50E7009C3F2F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD3E3E147A50E7009C3F2F /* OpenAL.framework */; };
 		C1CD3E41147A50E7009C3F2F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD3E40147A50E7009C3F2F /* AudioToolbox.framework */; };
-		C1CD3E43147A50E7009C3F2F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD3E42147A50E7009C3F2F /* AVFoundation.framework */; };
 		C1CD3E45147A50E7009C3F2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD3E44147A50E7009C3F2F /* UIKit.framework */; };
 		C1CD3E47147A50E7009C3F2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD3E46147A50E7009C3F2F /* Foundation.framework */; };
 		C1CD3E49147A50E7009C3F2F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD3E48147A50E7009C3F2F /* CoreGraphics.framework */; };
@@ -43,7 +39,6 @@
 		C1CD3E4F147A50E7009C3F2F /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = C1CD3E4E147A50E7009C3F2F /* fps_images.png */; };
 		C1CD3E55147A50E7009C3F2F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = C1CD3E54147A50E7009C3F2F /* Icon-Small.png */; };
 		C1CD3E59147A50E7009C3F2F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C1CD3E58147A50E7009C3F2F /* Icon.png */; };
-		C1CD3E5E147A50E7009C3F2F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = C1CD3E5D147A50E7009C3F2F /* iTunesArtwork */; };
 		C1CD3FEB147A5192009C3F2F /* ExtendedAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FAC147A5190009C3F2F /* ExtendedAttributes.m */; };
 		C1CD3FED147A5192009C3F2F /* InsertDiskView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FAF147A5190009C3F2F /* InsertDiskView.m */; };
 		C1CD3FEE147A5192009C3F2F /* KBKey.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CD3FB1147A5190009C3F2F /* KBKey.m */; };
@@ -94,16 +89,6 @@
 		C1CD4077147A51D0009C3F2F /* US.kbdlayout in Resources */ = {isa = PBXBuildFile; fileRef = C1CD4042147A51D0009C3F2F /* US.kbdlayout */; };
 		C1CD4079147A520D009C3F2F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD4078147A520D009C3F2F /* CoreFoundation.framework */; };
 		C1CD407B147A522A009C3F2F /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD407A147A522A009C3F2F /* CoreAudio.framework */; };
-		C1CD4086147A7747009C3F2F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD4085147A7747009C3F2F /* CoreVideo.framework */; };
-		C1CD408C147B3643009C3F2F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD408B147B3643009C3F2F /* CoreText.framework */; };
-		C1CD410F147B83EE009C3F2F /* Disk Tools.dsk in Resources */ = {isa = PBXBuildFile; fileRef = C1CD4109147B83ED009C3F2F /* Disk Tools.dsk */; };
-		C1CD4110147B83EE009C3F2F /* Fonts.image in Resources */ = {isa = PBXBuildFile; fileRef = C1CD410A147B83ED009C3F2F /* Fonts.image */; };
-		C1CD4111147B83EE009C3F2F /* hfs24M.DSK in Resources */ = {isa = PBXBuildFile; fileRef = C1CD410B147B83ED009C3F2F /* hfs24M.DSK */; };
-		C1CD4112147B83EE009C3F2F /* Install 1.image in Resources */ = {isa = PBXBuildFile; fileRef = C1CD410C147B83EE009C3F2F /* Install 1.image */; };
-		C1CD4113147B83EE009C3F2F /* Install 2.image in Resources */ = {isa = PBXBuildFile; fileRef = C1CD410D147B83EE009C3F2F /* Install 2.image */; };
-		C1CD4114147B83EE009C3F2F /* Printing.image in Resources */ = {isa = PBXBuildFile; fileRef = C1CD410E147B83EE009C3F2F /* Printing.image */; };
-		C1CEFEAE147FA4AC000ECF47 /* MacOS755.dsk in Resources */ = {isa = PBXBuildFile; fileRef = C1CEFEAD147FA4AC000ECF47 /* MacOS755.dsk */; };
-		C1CEFEB514808C40000ECF47 /* System701.dsk in Resources */ = {isa = PBXBuildFile; fileRef = C1CEFEB414808C40000ECF47 /* System701.dsk */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,7 +147,6 @@
 		C14B18C7147E15B500A11CFF /* MYOSGLUE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYOSGLUE.h; sourceTree = "<group>"; };
 		C14B18C8147E2BC800A11CFF /* PROGMAIN.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PROGMAIN.c; sourceTree = "<group>"; };
 		C14B18D2147E74BD00A11CFF /* Glue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Glue.m; path = src/Glue.m; sourceTree = "<group>"; };
-		C14B18E0147F36AE00A11CFF /* MacIIx.ROM */ = {isa = PBXFileReference; lastKnownFileType = file; path = MacIIx.ROM; sourceTree = "<group>"; };
 		C1CD3E36147A50E7009C3F2F /* minivmac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = minivmac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1CD3E3A147A50E7009C3F2F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C1CD3E3C147A50E7009C3F2F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -177,7 +161,6 @@
 		C1CD3E54147A50E7009C3F2F /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Resources/Icon-Small.png"; sourceTree = "<group>"; };
 		C1CD3E58147A50E7009C3F2F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
 		C1CD3E5C147A50E7009C3F2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
-		C1CD3E5D147A50E7009C3F2F /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/iTunesArtwork; sourceTree = "<group>"; };
 		C1CD3F99147A50E9009C3F2F /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		C1CD3FAB147A5190009C3F2F /* ExtendedAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExtendedAttributes.h; path = src/ExtendedAttributes.h; sourceTree = "<group>"; };
 		C1CD3FAC147A5190009C3F2F /* ExtendedAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExtendedAttributes.m; path = src/ExtendedAttributes.m; sourceTree = "<group>"; };
@@ -253,14 +236,6 @@
 		C1CD407A147A522A009C3F2F /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		C1CD4085147A7747009C3F2F /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		C1CD408B147B3643009C3F2F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		C1CD4109147B83ED009C3F2F /* Disk Tools.dsk */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Disk Tools.dsk"; sourceTree = "<group>"; };
-		C1CD410A147B83ED009C3F2F /* Fonts.image */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fonts.image; sourceTree = "<group>"; };
-		C1CD410B147B83ED009C3F2F /* hfs24M.DSK */ = {isa = PBXFileReference; lastKnownFileType = file; path = hfs24M.DSK; sourceTree = "<group>"; };
-		C1CD410C147B83EE009C3F2F /* Install 1.image */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Install 1.image"; sourceTree = "<group>"; };
-		C1CD410D147B83EE009C3F2F /* Install 2.image */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Install 2.image"; sourceTree = "<group>"; };
-		C1CD410E147B83EE009C3F2F /* Printing.image */ = {isa = PBXFileReference; lastKnownFileType = file; path = Printing.image; sourceTree = "<group>"; };
-		C1CEFEAD147FA4AC000ECF47 /* MacOS755.dsk */ = {isa = PBXFileReference; lastKnownFileType = file; path = MacOS755.dsk; sourceTree = "<group>"; };
-		C1CEFEB414808C40000ECF47 /* System701.dsk */ = {isa = PBXFileReference; lastKnownFileType = file; path = System701.dsk; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,15 +243,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1CD408C147B3643009C3F2F /* CoreText.framework in Frameworks */,
-				C1CD4086147A7747009C3F2F /* CoreVideo.framework in Frameworks */,
 				C1CD407B147A522A009C3F2F /* CoreAudio.framework in Frameworks */,
 				C1CD4079147A520D009C3F2F /* CoreFoundation.framework in Frameworks */,
 				C1CD3E47147A50E7009C3F2F /* Foundation.framework in Frameworks */,
 				C1CD3E3B147A50E7009C3F2F /* QuartzCore.framework in Frameworks */,
-				C1CD3E3D147A50E7009C3F2F /* OpenGLES.framework in Frameworks */,
-				C1CD3E3F147A50E7009C3F2F /* OpenAL.framework in Frameworks */,
-				C1CD3E43147A50E7009C3F2F /* AVFoundation.framework in Frameworks */,
 				C1CD3E41147A50E7009C3F2F /* AudioToolbox.framework in Frameworks */,
 				C1CD3E45147A50E7009C3F2F /* UIKit.framework in Frameworks */,
 				C1CD3E49147A50E7009C3F2F /* CoreGraphics.framework in Frameworks */,
@@ -412,8 +382,8 @@
 				C1CD3FB3147A5190009C3F2F /* KeyboardView.m */,
 				C1CD3FB2147A5190009C3F2F /* KeyboardView.h */,
 				C1CD3FB4147A5190009C3F2F /* main.m */,
-				C1CD3FB5147A5190009C3F2F /* MainView.h */,
 				C14B18D2147E74BD00A11CFF /* Glue.m */,
+				C1CD3FB5147A5190009C3F2F /* MainView.h */,
 				C1CD3FB6147A5190009C3F2F /* MainView.m */,
 				C1CD3FB7147A5190009C3F2F /* mnvm */,
 				C1CD3FE1147A5191009C3F2F /* NewDiskView.h */,
@@ -435,15 +405,6 @@
 		C1CD3E4B147A50E7009C3F2F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C1CEFEB414808C40000ECF47 /* System701.dsk */,
-				C14B18E0147F36AE00A11CFF /* MacIIx.ROM */,
-				C1CD4109147B83ED009C3F2F /* Disk Tools.dsk */,
-				C1CD410A147B83ED009C3F2F /* Fonts.image */,
-				C1CEFEAD147FA4AC000ECF47 /* MacOS755.dsk */,
-				C1CD410B147B83ED009C3F2F /* hfs24M.DSK */,
-				C1CD410C147B83EE009C3F2F /* Install 1.image */,
-				C1CD410D147B83EE009C3F2F /* Install 2.image */,
-				C1CD410E147B83EE009C3F2F /* Printing.image */,
 				C1CD4006147A51CC009C3F2F /* Default.png */,
 				C1CD4007147A51CC009C3F2F /* diskEject.aiff */,
 				C1CD4008147A51CC009C3F2F /* DiskListFloppy.png */,
@@ -496,7 +457,6 @@
 				C1CD3E54147A50E7009C3F2F /* Icon-Small.png */,
 				C1CD3E58147A50E7009C3F2F /* Icon.png */,
 				C1CD3E5C147A50E7009C3F2F /* Info.plist */,
-				C1CD3E5D147A50E7009C3F2F /* iTunesArtwork */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -612,7 +572,6 @@
 				C1CD3E4F147A50E7009C3F2F /* fps_images.png in Resources */,
 				C1CD3E55147A50E7009C3F2F /* Icon-Small.png in Resources */,
 				C1CD3E59147A50E7009C3F2F /* Icon.png in Resources */,
-				C1CD3E5E147A50E7009C3F2F /* iTunesArtwork in Resources */,
 				C1CD4044147A51D0009C3F2F /* diskEject.aiff in Resources */,
 				C1CD4045147A51D0009C3F2F /* DiskListFloppy.png in Resources */,
 				C1CD4046147A51D0009C3F2F /* DiskListHD.png in Resources */,
@@ -652,19 +611,10 @@
 				C1CD4073147A51D0009C3F2F /* PSReset.png in Resources */,
 				C1CD4076147A51D0009C3F2F /* UK.kbdlayout in Resources */,
 				C1CD4077147A51D0009C3F2F /* US.kbdlayout in Resources */,
-				C1CD410F147B83EE009C3F2F /* Disk Tools.dsk in Resources */,
-				C1CD4110147B83EE009C3F2F /* Fonts.image in Resources */,
-				C1CD4111147B83EE009C3F2F /* hfs24M.DSK in Resources */,
-				C1CD4112147B83EE009C3F2F /* Install 1.image in Resources */,
-				C1CD4113147B83EE009C3F2F /* Install 2.image in Resources */,
-				C1CD4114147B83EE009C3F2F /* Printing.image in Resources */,
 				C14B18A1147E0A5F00A11CFF /* AppIcon.icns in Resources */,
 				C14B18A3147E0A5F00A11CFF /* Build String in Resources */,
 				C14B18A4147E0A5F00A11CFF /* dummy.txt in Resources */,
 				C14B18A6147E0A5F00A11CFF /* Info.plist in Resources */,
-				C14B18E5147F36AE00A11CFF /* MacIIx.ROM in Resources */,
-				C1CEFEAE147FA4AC000ECF47 /* MacOS755.dsk in Resources */,
-				C1CEFEB514808C40000ECF47 /* System701.dsk in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,18 +717,19 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Peter Godwin (7DXXUZD26H)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
 					"COCOS2D_DEBUG=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PROVISIONING_PROFILE = "D050ECC4-9F0D-4997-86DF-D300191E3286";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -790,13 +741,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "D050ECC4-9F0D-4997-86DF-D300191E3286";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

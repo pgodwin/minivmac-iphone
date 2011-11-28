@@ -847,7 +847,7 @@ LOCALFUNC char * ControlMode2TitleStr(void)
 GLOBALFUNC ui3p GetCurDrawBuff(void)
 {
 	ui3p p = screencomparebuff;
-
+    
 //	if (0 != SpecialModes) {
 //		MyMoveBytes((anyp)p, (anyp)CntrlDisplayBuff,
 //#if 0 != vMacScreenDepth

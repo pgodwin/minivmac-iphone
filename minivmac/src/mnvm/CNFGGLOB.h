@@ -69,7 +69,7 @@ typedef unsigned long long ui6b;
 
 /* capabilities provided by platform specific code */
 
-#define MySoundEnabled 0
+#define MySoundEnabled 1
 
 #define MySoundRecenterSilence 0
 #define kLn2SoundSampSz 3
@@ -84,6 +84,7 @@ typedef unsigned long long ui6b;
 
 #define vMacScreenHeight 480
 #define vMacScreenWidth 640
+
 #define vMacScreenDepth 3
 
 #define vMacScreenNumPixels \

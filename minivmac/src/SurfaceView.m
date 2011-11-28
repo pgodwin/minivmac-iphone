@@ -78,7 +78,7 @@ static unsigned char colorTable[] = {0, 0, 0, 255, 255, 255, 0};
         
         int delta = 4;
 		
-		pixels   = (unsigned char*)malloc(delta *vMacScreenNumBytes);
+		pixels = (unsigned char*)malloc(delta *vMacScreenNumBytes);
         
         provider = CGDataProviderCreateWithData(NULL, pixels,  delta *vMacScreenNumBytes, NULL);	
         
@@ -95,11 +95,17 @@ static unsigned char colorTable[] = {0, 0, 0, 255, 255, 255, 0};
         [surfaceLayer setOpaque: YES];   
         [surfaceLayer setMagnificationFilter:magnificationFilter];
         [surfaceLayer setMinificationFilter:minificationFilter];
-        
+
+
         [[self layer] addSublayer: surfaceLayer];
     }
     
     return self;
+}
+
++ (id)defaultAnimationForKey:(NSString *)key {
+    
+    return nil;    
 }
 
 - (void)dealloc {
@@ -111,22 +117,37 @@ static unsigned char colorTable[] = {0, 0, 0, 255, 255, 255, 0};
 }
 
 
+- (id<CAAction>)actionForLayer:(CALayer *)layer forKey:(NSString *)event
+{
+    if ([event isEqualToString:@"position"] || [event isEqualToString:@"bounds"]) {
+        return (id<CAAction>)[NSNull null];
+    }
+    
+    return nil;
+}
+
+
 
 
 - (void)drawRect:(CGRect)rect {
-    
-
-    // Do not remove this empty function, or you'll break it
-    
-
-   
-    //provider = CGDataProviderCreateWithData(NULL, pixels, vMacScreenNumBytes, NULL);
-    
+        
     if (!useColor) {
         
         colorSpace = CGColorSpaceCreateIndexed(rgbColorSpace, 1, colorTable);
         
-        cgImage = CGImageCreate(vMacScreenWidth, vMacScreenHeight, 8, 8, vMacScreenByteWidth, colorSpace, 0, provider, NULL, false, kCGRenderingIntentDefault);
+        cgImage = CGImageCreate(
+                                vMacScreenWidth, 
+                                vMacScreenHeight, 
+                                8, // bpc
+                                8, // bpp
+                                vMacScreenByteWidth, // bpr
+                                colorSpace, 
+                                0, 
+                                provider, 
+                                NULL, 
+                                false, 
+                                kCGRenderingIntentDefault
+                                );
         
         CGColorSpaceRelease(colorSpace);
     }
@@ -140,7 +161,8 @@ static unsigned char colorTable[] = {0, 0, 0, 255, 255, 255, 0};
                                     32, // bpp
                                     4 * vMacScreenWidth, // bpr
                                     rgbColorSpace,
-                                    kCGBitmapByteOrder32Host| kCGImageAlphaNoneSkipLast,
+                                    //kCGBitmapByteOrder32Host| kCGImageAlphaNoneSkipLast,
+                                    kCGImageAlphaNone | kCGBitmapByteOrder32Little,
                                     provider,
                                     NULL,
                                     NO,
@@ -148,12 +170,18 @@ static unsigned char colorTable[] = {0, 0, 0, 255, 255, 255, 0};
                                     );
         
     }
-
+    // CoreAnimation seems to want to put a transition between each setContents
+    // Set the CATransaction to disable the actions
+    [CATransaction begin];
+    [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions ];
     [surfaceLayer setContents:(id)cgImage];
-
+    [CATransaction commit];
+    
 //    CGContextRef ctx = UIGraphicsGetCurrentContext();
-//    CGContextScaleCTM(ctx, 1.0, -1.0);
-//    CGContextDrawImage(ctx, CGRectMake(0, -vMacScreenHeight,vMacScreenWidth,vMacScreenHeight), cgImage);
+//    //CGContextScaleCTM(ctx, 1.0, -1.0);
+//    //CGContextDrawImage(ctx, CGRectMake(0, -vMacScreenHeight,vMacScreenWidth,vMacScreenHeight), cgImage);
+//    
+//    CGContextDrawImage(ctx, rect, cgImage);
 
     CGImageRelease (cgImage);
     

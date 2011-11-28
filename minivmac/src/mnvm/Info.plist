@@ -19,8 +19,6 @@
 	<string>minivmac</string>
 	<key>CFBundleGetInfoString</key>
 	<string>minivmac-3.2.3-imch, Copyright 2011 maintained by unknown.</string>
-	<key>CFBundleIconFile</key>
-	<string>AppIcon.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.gryphel.minivmac</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -29,13 +27,19 @@
 	<string>Mini vMac</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.utilities</string>
+	<key>UIInterfaceOrientation</key>
+	<string>UIInterfaceOrientationLandscapeRight</string>
 	<key>CFBundleShortVersionString</key>
 	<string>3.2.3</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>3.2.3</string>
-	<key>LSRequiresCarbon</key>
-	<string>true/</string>
+	<key>UIStatusBarHidden</key>
+	<true/>
 </dict>
 </plist>

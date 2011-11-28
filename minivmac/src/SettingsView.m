@@ -31,8 +31,12 @@
         [table setDataSource: self];
         [self addSubview: table];
         
+        CGRect toolbarRect;
         // create toolbar
-        CGRect toolbarRect = CGRectMake(0.0, 320.0-kToolbarHeight, frame.size.width, kToolbarHeight);
+        if (IPAD() == true)
+            toolbarRect = CGRectMake(0.0, 720.0-kToolbarHeight, frame.size.width, kToolbarHeight);
+        else
+            toolbarRect = CGRectMake(0.0, 320.0-kToolbarHeight, frame.size.width, kToolbarHeight);
         UIBarButtonItem *interruptButton, *resetButton;
         interruptButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"PSInterrupt.png"]
                             style:0 target:self action:@selector(macInterrupt)];
